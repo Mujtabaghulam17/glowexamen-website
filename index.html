@@ -3,16 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOWEXAMEN - AI Examentraining voor €24,99/maand</title>
-    <meta name="description" content="Professionele examentraining voor MAVO, HAVO & VWO. AI-coach + ouder dashboard voor €24,99/maand. 10x goedkoper dan bijles, beter resultaat.">
     
+    <!-- SEO Meta Tags -->
+    <title>GLOWEXAMEN - Examentraining HAVO VWO VMBO | AI Platform €24,99</title>
+    <meta name="description" content="De beste examentraining voor HAVO, VWO en VMBO leerlingen. AI-coach, proefexamens, flashcards en ouder dashboard voor €24,99/maand. Start gratis!">
+    <meta name="keywords" content="examentraining, eindexamen, HAVO examen, VWO examen, VMBO examen, bijles, AI leerplatform, examenvoorbereiding, proefexamen, Nederlands eindexamen">
+    <link rel="canonical" href="https://www.glowexamen.nl">
+    
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="GLOWEXAMEN - AI Examentraining voor €24,99/maand">
-    <meta property="og:description" content="AI-gedreven examenvoorbereiding met ouder dashboard. €24,99/maand voor alle vakken.">
+    <meta property="og:description" content="Examentraining voor HAVO, VWO en VMBO. AI-coach + ouder dashboard. 87% goedkoper dan bijles.">
+    <meta property="og:url" content="https://www.glowexamen.nl">
+    <meta property="og:locale" content="nl_NL">
     
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "GLOWEXAMEN",
+      "description": "AI-gedreven examentraining platform voor MAVO, HAVO en VWO leerlingen",
+      "url": "https://www.glowexamen.nl",
+      "logo": "https://www.glowexamen.nl/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "24.99",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -20,529 +49,467 @@
         }
 
         :root {
-            --purple: #A855F7;
-            --pink: #EC4899;
-            --blue: #3B82F6;
-            --dark: #1F2937;
-            --gray: #6B7280;
-            --light-gray: #F9FAFB;
-            --success: #10B981;
+            --neon-purple: #B026FF;
+            --neon-pink: #FF0080;
+            --neon-blue: #00D9FF;
+            --dark-bg: #0A0A0F;
+            --card-bg: #151520;
+            --text: #FFFFFF;
+            --text-dim: #A0A0B0;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
+            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text);
             overflow-x: hidden;
         }
 
-        .gradient-bg {
+        /* Animated Background */
+        .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             z-index: -1;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f172a 100%);
+            overflow: hidden;
         }
 
-        .orb {
+        .grid-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(176, 38, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(176, 38, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        .glow-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
+            filter: blur(100px);
+            opacity: 0.3;
             animation: float 8s ease-in-out infinite;
         }
 
-        .orb1 {
-            width: 400px;
-            height: 400px;
-            background: var(--purple);
-            top: -200px;
-            left: -200px;
+        .orb1 { 
+            width: 400px; 
+            height: 400px; 
+            background: var(--neon-purple); 
+            top: -100px; 
+            right: 10%;
         }
-
-        .orb2 {
-            width: 500px;
-            height: 500px;
-            background: var(--pink);
-            bottom: -250px;
-            right: -250px;
+        
+        .orb2 { 
+            width: 300px; 
+            height: 300px; 
+            background: var(--neon-pink); 
+            bottom: 10%; 
+            left: -50px;
             animation-delay: 2s;
         }
 
-        .orb3 {
-            width: 300px;
-            height: 300px;
-            background: var(--blue);
-            top: 50%;
-            right: 20%;
+        .orb3 { 
+            width: 250px; 
+            height: 250px; 
+            background: var(--neon-blue); 
+            top: 40%; 
+            left: 50%;
             animation-delay: 4s;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.1); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 16px 24px;
+            padding: 20px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo-nav {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-
-        .logo-text-nav {
-            font-size: 20px;
+        .logo {
+            font-size: 24px;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--purple), var(--pink));
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-links a {
             text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--purple);
         }
 
         .nav-cta {
-            padding: 10px 24px;
-            background: linear-gradient(135deg, var(--purple), var(--pink));
-            color: white;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
             border: none;
-            border-radius: 8px;
-            font-weight: 600;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 16px;
+            color: white;
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(176, 38, 255, 0.3);
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 0 30px rgba(176, 38, 255, 0.6);
         }
 
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 24px 80px;
+            padding: 140px 32px 80px;
             position: relative;
         }
 
         .hero-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            width: 100%;
         }
 
-        .hero-content h1 {
-            font-size: 52px;
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(176, 38, 255, 0.15);
+            border: 1px solid var(--neon-purple);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neon-purple);
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 96px);
             font-weight: 900;
-            color: white;
-            margin-bottom: 24px;
-            line-height: 1.1;
+            line-height: 1;
+            margin-bottom: 32px;
+            letter-spacing: -3px;
         }
 
-        .hero-content .highlight {
-            background: linear-gradient(135deg, var(--purple), var(--pink), var(--blue));
+        .gradient-text {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink), var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
-        .hero-content p {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 32px;
+        .hero-description {
+            font-size: clamp(18px, 2vw, 24px);
+            color: var(--text-dim);
+            max-width: 700px;
+            margin-bottom: 48px;
+            line-height: 1.6;
         }
 
-        .price-highlight {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 32px;
-        }
-
-        .price-highlight .price {
-            font-size: 42px;
-            font-weight: 900;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .price-highlight .price span {
-            font-size: 20px;
-            opacity: 0.7;
-        }
-
-        .price-highlight .subtext {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-        }
-
-        .price-highlight .comparison {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--success);
-            font-weight: 600;
-        }
-
-        .hero-ctas {
+        .cta-group {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 60px;
         }
 
         .btn-primary {
-            padding: 16px 40px;
-            background: linear-gradient(135deg, var(--purple), var(--pink));
-            color: white;
+            padding: 20px 48px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
             border: none;
-            border-radius: 12px;
+            border-radius: 100px;
+            font-weight: 800;
             font-size: 18px;
-            font-weight: 600;
+            color: white;
             cursor: pointer;
             text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(176, 38, 255, 0.4);
             display: inline-block;
-            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(168, 85, 247, 0.5);
+            box-shadow: 0 15px 50px rgba(176, 38, 255, 0.6);
         }
 
         .btn-secondary {
-            padding: 16px 40px;
+            padding: 20px 48px;
             background: transparent;
-            color: white;
-            border: 2px solid white;
-            border-radius: 12px;
+            border: 2px solid var(--neon-purple);
+            border-radius: 100px;
+            font-weight: 700;
             font-size: 18px;
-            font-weight: 600;
+            color: white;
             cursor: pointer;
             text-decoration: none;
+            transition: all 0.3s;
             display: inline-block;
-            transition: all 0.2s;
         }
 
         .btn-secondary:hover {
-            background: white;
-            color: var(--dark);
+            background: rgba(176, 38, 255, 0.1);
+            border-color: var(--neon-pink);
         }
 
-        .hero-visual {
-            position: relative;
-        }
-
-        .dashboard-preview {
-            background: white;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.3s;
-        }
-
-        .dashboard-preview:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-
-        .preview-header {
-            display: flex;
+        .price-tag {
+            display: inline-flex;
+            align-items: baseline;
             gap: 8px;
-            margin-bottom: 20px;
+            font-size: 20px;
+            color: var(--text-dim);
         }
 
-        .preview-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ddd;
+        .price-tag strong {
+            font-size: 56px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .preview-content {
-            color: var(--dark);
-        }
-
-        .preview-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .preview-stat {
-            background: var(--light-gray);
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 8px;
+        .trust-stats {
             display: flex;
-            justify-content: space-between;
+            gap: 60px;
+            flex-wrap: wrap;
         }
 
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-dim);
+        }
+
+        /* Section Styles */
         section {
-            padding: 100px 24px;
+            padding: 120px 32px;
             position: relative;
-        }
-
-        .section-white { background: white; }
-        .section-gray { background: var(--light-gray); }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
-        .section-header h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            color: var(--dark);
+        h2 {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
         }
 
-        .section-header p {
-            font-size: 18px;
-            color: var(--gray);
-            max-width: 600px;
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-dim);
+            max-width: 700px;
             margin: 0 auto;
         }
 
+        /* Features Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .feature-card {
-            background: white;
-            padding: 32px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .feature-card:hover {
+            border-color: rgba(176, 38, 255, 0.5);
             transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(168, 85, 247, 0.2);
+            box-shadow: 0 20px 60px rgba(176, 38, 255, 0.2);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--purple), var(--pink));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 48px;
+            margin-bottom: 24px;
+            display: block;
         }
 
         .feature-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-            color: var(--dark);
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
         }
 
         .feature-card p {
-            color: var(--gray);
+            color: var(--text-dim);
             line-height: 1.7;
+            font-size: 16px;
         }
 
-        .parent-dashboard-section {
-            background: linear-gradient(135deg, #f8f9ff 0%, #fff5f7 100%);
-        }
-
-        .parent-content {
+        /* Pricing Section */
+        .pricing-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .parent-info h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            color: var(--dark);
-        }
-
-        .parent-benefits {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-
-        .parent-benefits li {
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: start;
-            gap: 12px;
-        }
-
-        .parent-benefits li:last-child {
-            border-bottom: none;
-        }
-
-        .benefit-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            flex-shrink: 0;
-            margin-top: 4px;
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 32px;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .pricing-card {
-            background: white;
-            border-radius: 16px;
-            padding: 40px 32px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 48px 40px;
             position: relative;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s;
         }
 
         .pricing-card.featured {
-            border: 3px solid var(--purple);
+            border-color: var(--neon-purple);
+            background: linear-gradient(180deg, rgba(176, 38, 255, 0.1), var(--card-bg));
             transform: scale(1.05);
         }
 
         .featured-badge {
             position: absolute;
-            top: -12px;
+            top: -16px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--purple), var(--pink));
-            color: white;
-            padding: 4px 16px;
-            border-radius: 20px;
+            padding: 6px 24px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+            border-radius: 100px;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .plan-name {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin-bottom: 16px;
         }
 
         .plan-price {
-            font-size: 42px;
+            font-size: 72px;
             font-weight: 900;
-            color: var(--dark);
+            line-height: 1;
             margin-bottom: 8px;
         }
 
         .plan-price span {
-            font-size: 18px;
-            color: var(--gray);
+            font-size: 24px;
+            color: var(--text-dim);
         }
 
         .plan-description {
-            color: var(--gray);
-            margin-bottom: 24px;
-            min-height: 48px;
+            color: var(--text-dim);
+            margin-bottom: 32px;
+            font-size: 16px;
         }
 
         .plan-features {
             list-style: none;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
 
         .plan-features li {
             padding: 12px 0;
-            color: var(--dark);
+            color: var(--text-dim);
             display: flex;
             align-items: start;
-            gap: 8px;
+            gap: 12px;
+            font-size: 15px;
         }
 
         .plan-features li::before {
             content: "✓";
-            color: var(--success);
-            font-weight: 700;
+            color: var(--neon-purple);
+            font-weight: 900;
+            font-size: 18px;
             flex-shrink: 0;
         }
 
+        /* FAQ */
         .faq-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .faq-item {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
             margin-bottom: 16px;
             cursor: pointer;
-            transition: box-shadow 0.2s;
+            transition: all 0.3s;
         }
 
         .faq-item:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-color: rgba(176, 38, 255, 0.5);
         }
 
         .faq-question {
@@ -550,14 +517,13 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 700;
-            font-size: 18px;
-            color: var(--dark);
+            font-size: 20px;
         }
 
         .faq-answer {
-            margin-top: 16px;
-            color: var(--gray);
-            line-height: 1.7;
+            margin-top: 20px;
+            color: var(--text-dim);
+            line-height: 1.8;
             display: none;
         }
 
@@ -565,472 +531,357 @@
             display: block;
         }
 
+        /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--purple), var(--pink), var(--blue));
-            padding: 80px 24px;
+            background: linear-gradient(135deg, rgba(176, 38, 255, 0.2), rgba(255, 0, 128, 0.2));
+            border: 2px solid rgba(176, 38, 255, 0.3);
+            border-radius: 48px;
+            padding: 80px 48px;
             text-align: center;
-            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .cta-section h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
+        /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 24px 30px;
+            background: rgba(10, 10, 15, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 80px 32px 32px;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
         .footer-section h4 {
-            margin-bottom: 20px;
-            font-size: 18px;
+            margin-bottom: 24px;
+            font-size: 16px;
+            font-weight: 700;
         }
 
         .footer-section a {
             display: block;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-dim);
             text-decoration: none;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             transition: color 0.2s;
+            font-size: 15px;
         }
 
         .footer-section a:hover {
-            color: white;
+            color: var(--neon-purple);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 32px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-dim);
+            font-size: 14px;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-container { grid-template-columns: 1fr; }
-            .parent-content { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: 36px; }
-            .section-header h2 { font-size: 32px; }
+            .hero { padding: 120px 24px 60px; }
+            section { padding: 80px 24px; }
+            .trust-stats { gap: 40px; }
+            .cta-group { flex-direction: column; width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+            .pricing-card.featured { transform: scale(1); }
         }
     </style>
 </head>
 <body>
-    <div class="gradient-bg">
-        <div class="orb orb1"></div>
-        <div class="orb orb2"></div>
-        <div class="orb orb3"></div>
+    <!-- Animated Background -->
+    <div class="bg-container">
+        <div class="grid-bg"></div>
+        <div class="glow-orb orb1"></div>
+        <div class="glow-orb orb2"></div>
+        <div class="glow-orb orb3"></div>
     </div>
 
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo-nav">
-                <span class="logo-text-nav">✨ GLOWEXAMEN</span>
-            </a>
-            <div class="nav-links">
-                <a href="#features">Voordelen</a>
-                <a href="#ouders">Voor Ouders</a>
-                <a href="#pricing">Prijzen</a>
-                <a href="#faq">FAQ</a>
-                <a href="https://app-526684575961.us-west1.run.app" class="nav-cta">Start Gratis</a>
-            </div>
+            <a href="#" class="logo">GLOWEXAMEN</a>
+            <a href="https://app-526684575961.us-west1.run.app" class="nav-cta">Start Gratis →</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
-            <div class="hero-content">
-                <h1>
-                    Het complete AI examen-platform voor <span class="highlight">€24,99/maand</span>
-                </h1>
-                <p>
-                    AI-coach + gamification + ouder dashboard. Alle vakken voor MAVO/HAVO/VWO. 
-                    Betere resultaten dan bijles, voor een fractie van de prijs.
-                </p>
+            <div class="hero-badge">🔥 Voor VMBO, HAVO & VWO Leerlingen</div>
+            
+            <h1>
+                Examentraining die<br>
+                <span class="gradient-text">niet zuigt</span>
+            </h1>
 
-                <div class="price-highlight">
-                    <div class="price">€24,99 <span>/maand</span></div>
-                    <div class="subtext">1 leerling • Alle vakken • Onbeperkt gebruik</div>
-                    <div class="comparison">💰 Bijles kost €50-60/uur → €200-240/maand voor 4 uur</div>
-                </div>
-
-                <div class="hero-ctas">
-                    <a href="https://app-526684575961.us-west1.run.app" class="btn-primary">
-                        Start 14 Dagen Gratis →
-                    </a>
-                    <a href="#features" class="btn-secondary">
-                        Bekijk Alle Features
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <div class="dashboard-preview">
-                    <div class="preview-header">
-                        <div class="preview-dot"></div>
-                        <div class="preview-dot"></div>
-                        <div class="preview-dot"></div>
-                    </div>
-                    <div class="preview-content">
-                        <div class="preview-title">Dashboard Preview</div>
-                        <div class="preview-stat">
-                            <span>Nederlands VWO</span>
-                            <strong>7.8</strong>
-                        </div>
-                        <div class="preview-stat">
-                            <span>Oefeningen voltooid</span>
-                            <strong>127</strong>
-                        </div>
-                        <div class="preview-stat">
-                            <span>Tijd geïnvesteerd</span>
-                            <strong>14u 23m</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="section-white">
-        <div class="container">
-            <div class="section-header">
-                <h2>Waarom kiezen ouders voor GLOWEXAMEN?</h2>
-                <p>De slimme keuze tussen dure bijles en gratis (maar ongesuperviseerde) AI tools</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Ouder Dashboard</h3>
-                    <p>Real-time inzicht in voortgang, tijdsbesteding en moeilijke onderwerpen. Zie precies waar je kind aan werkt.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Chat met GLOW AI</h3>
-                    <p>24/7 beschikbaar voor al je examenvragen. Geen wachten, directe uitleg wanneer jij wilt leren.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Slimme Proefexamens</h3>
-                    <p>Oefen onder echte examenomstandigheden. AI analyseert je antwoorden en geeft gerichte feedback.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎴</div>
-                    <h3>Flashcards & Spaced Repetition</h3>
-                    <p>Maak en oefen flashcards met bewezen geheugentraining. Nooit meer dingen vergeten vlak voor het examen.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Gamification: XP, Levels & Streaks</h3>
-                    <p>Verdien XP, unlock levels en bouw je streak op. Leren wordt verslavend als een game.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🧘</div>
-                    <h3>Zen Zone</h3>
-                    <p>Stress voor het examen? Breathing exercises, focus-technieken en motivatie op moeilijke momenten.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Fouten Analyse</h3>
-                    <p>AI detecteert patronen in je fouten en maakt een persoonlijk verbeterplan. Slim leren van je mistakes.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📝</div>
-                    <h3>Samenvatting Analyse</h3>
-                    <p>Upload je samenvattingen, GLOW AI checkt ze en vult gaten aan. Zeker weten dat je niks mist.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Squad - Leer met Vrienden</h3>
-                    <p>Challenge je klasgenoten, vergelijk scores en motiveer elkaar. Samen studeren werkt beter.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ouders" class="parent-dashboard-section">
-        <div class="container">
-            <div class="parent-content">
-                <div class="parent-info">
-                    <h2>Voor ouders: eindelijk inzicht in de voortgang</h2>
-                    <p style="font-size: 18px; color: var(--gray); margin-bottom: 32px;">
-                        Het verschil tussen ChatGPT en GLOWEXAMEN? Wij geven jou als ouder transparantie en controle.
-                    </p>
-
-                    <ul class="parent-benefits">
-                        <li>
-                            <span class="benefit-icon">✓</span>
-                            <div>
-                                <strong>Real-time voortgang</strong><br>
-                                Zie welke vakken je kind oefent en hoe het gaat
-                            </div>
-                        </li>
-                        <li>
-                            <span class="benefit-icon">✓</span>
-                            <div>
-                                <strong>Tijdsbesteding inzicht</strong><br>
-                                Hoeveel tijd wordt er écht besteed aan leren?
-                            </div>
-                        </li>
-                        <li>
-                            <span class="benefit-icon">✓</span>
-                            <div>
-                                <strong>Moeilijke onderwerpen</strong><br>
-                                Automatisch detecteren waar extra aandacht nodig is
-                            </div>
-                        </li>
-                        <li>
-                            <span class="benefit-icon">✓</span>
-                            <div>
-                                <strong>Wekelijkse rapporten</strong><br>
-                                Email updates met de belangrijkste ontwikkelingen
-                            </div>
-                        </li>
-                    </ul>
-
-                    <a href="https://app-526684575961.us-west1.run.app" class="btn-primary">
-                        Bekijk Voorbeeld Dashboard →
-                    </a>
-                </div>
-
-                <div class="parent-visual">
-                    <div class="dashboard-preview">
-                        <div class="preview-header">
-                            <div class="preview-dot"></div>
-                            <div class="preview-dot"></div>
-                            <div class="preview-dot"></div>
-                        </div>
-                        <div class="preview-content">
-                            <div class="preview-title">Ouder Dashboard</div>
-                            <div class="preview-stat">
-                                <span>📚 Deze week actief</span>
-                                <strong style="color: var(--success)">8u 47m</strong>
-                            </div>
-                            <div class="preview-stat">
-                                <span>📈 Gemiddelde score</span>
-                                <strong>7.6</strong>
-                            </div>
-                            <div class="preview-stat">
-                                <span>⚠️ Aandachtspunten</span>
-                                <strong>Literatuur</strong>
-                            </div>
-                            <div class="preview-stat">
-                                <span>🎯 Volgende milestone</span>
-                                <strong>23 apr</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="section-white">
-        <div class="container">
-            <div class="section-header">
-                <h2>Simpele, eerlijke prijzen</h2>
-                <p>Kies het plan dat bij je past. Opzeggen kan altijd.</p>
-            </div>
-
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <div class="plan-name">Starter</div>
-                    <div class="plan-price">€0 <span>/maand</span></div>
-                    <div class="plan-description">Ontdek de basis features</div>
-                    <ul class="plan-features">
-                        <li>5 AI chat vragen per dag</li>
-                        <li>1 vak naar keuze</li>
-                        <li>10 flashcards maken</li>
-                        <li>Basis voortgang tracking</li>
-                        <li>Community support</li>
-                    </ul>
-                    <a href="https://app-526684575961.us-west1.run.app" class="btn-secondary" style="width: 100%; text-align: center; color: var(--dark);">Start Gratis</a>
-                </div>
-
-                <div class="pricing-card featured">
-                    <div class="featured-badge">🔥 MEEST GEKOZEN</div>
-                    <div class="plan-name">Pro</div>
-                    <div class="plan-price">€24,99 <span>/maand</span></div>
-                    <div class="plan-description">Voor 1 leerling - alles inbegrepen</div>
-                    <ul class="plan-features">
-                        <li>Onbeperkt AI chat & hulp</li>
-                        <li>Alle vakken & niveaus</li>
-                        <li>Onbeperkte proefexamens</li>
-                        <li>Onbeperkte flashcards</li>
-                        <li>AI fouten- & samenvatting analyse</li>
-                        <li>XP, levels & streaks</li>
-                        <li>Zen Zone (anti-stress)</li>
-                        <li>Squad features</li>
-                        <li>Ouder dashboard (real-time)</li>
-                        <li>Wekelijkse voortgangsrapporten</li>
-                    </ul>
-                    <a href="https://app-526684575961.us-west1.run.app" class="btn-primary" style="width: 100%; text-align: center;">Start 14 Dagen Gratis</a>
-                </div>
-
-                <div class="pricing-card">
-                    <div class="plan-name">Gezin</div>
-                    <div class="plan-price">€64,99 <span>/maand</span></div>
-                    <div class="plan-description">Tot 3 kinderen - bespaar 13%</div>
-                    <ul class="plan-features">
-                        <li><strong>Alle Pro features</strong> voor elk kind</li>
-                        <li>Maximaal 3 leerling-accounts</li>
-                        <li>Gecombineerd ouder dashboard</li>
-                        <li>Vergelijk prestaties & voortgang</li>
-                        <li>Slechts €21,66/kind per maand</li>
-                        <li>Priority support hele gezin</li>
-                        <li>Opzegbaar per maand</li>
-                    </ul>
-                    <a href="https://app-526684575961.us-west1.run.app" class="btn-secondary" style="width: 100%; text-align: center; color: var(--dark);">Start 14 Dagen Gratis</a>
-                </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 40px; color: var(--gray);">
-                💡 <strong>Vergelijk:</strong> 4 uur bijles per maand à €50/uur = €200. GLOWEXAMEN Pro = €24,99 voor <em>onbeperkt</em> gebruik. Dat is <strong>87% goedkoper</strong>.
+            <p class="hero-description">
+                AI-coach, proefexamens, flashcards, XP & streaks. Alles wat je nodig hebt om je eindexamen te slopen. Geen saaie bijles. Geen dure prijzen. Gewoon resultaat.
             </p>
-        </div>
-    </section>
 
-    <section id="faq" class="section-gray">
-        <div class="container">
-            <div class="section-header">
-                <h2>Veelgestelde vragen</h2>
-                <p>Alles wat je moet weten voordat je start</p>
+            <div class="cta-group">
+                <a href="https://app-526684575961.us-west1.run.app" class="btn-primary">
+                    Start 14 Dagen Gratis
+                </a>
+                <div class="price-tag">
+                    <strong>€24,99</strong> /maand
+                </div>
             </div>
 
-            <div class="faq-container">
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <span>Hoe werkt de gratis proefperiode?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Je krijgt 14 dagen volledige toegang tot alle Pro features. Geen creditcard nodig om te starten. Na de proefperiode kun je kiezen om door te gaan of te stoppen.
-                    </div>
+            <div class="trust-stats">
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">AI beschikbaar</div>
                 </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <span>Hoe werkt het Gezinsplan?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Het Gezinsplan (€65/maand) is perfect voor gezinnen met 2-3 kinderen op de middelbare school. Elk kind krijgt een eigen account met alle Pro features. Ouders krijgen één gecombineerd dashboard om alle kinderen te volgen. Bij 3 kinderen betaal je slechts €21,67/kind - een besparing van €10/maand vergeleken met 3 losse accounts. Als bijles €200+/maand per kind zou kosten, bespaar je met het gezinsplan €535/maand (voor 3 kinderen).
-                    </div>
+                <div class="stat">
+                    <div class="stat-number">87%</div>
+                    <div class="stat-label">goedkoper dan bijles</div>
                 </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <span>Waarom €25 en niet gratis zoals ChatGPT?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        ChatGPT is generiek en ouders hebben geen inzicht. GLOWEXAMEN is gespecialiseerd in Nederlandse eindexamens, heeft een ouder dashboard voor transparantie, gamification om gemotiveerd te blijven, en gestructureerde leerplannen. Voor €25 krijg je een compleet platform dat bijles (€200+/maand) vervangt. Denk aan het als een Netflix-abonnement, maar dan voor je eindexamen.
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <span>Welke vakken worden ondersteund?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        We starten met Nederlands voor alle niveaus (MAVO/HAVO/VWO). Andere kernvakken zoals Wiskunde en Engels worden binnenkort toegevoegd. Pro members krijgen automatisch toegang tot nieuwe vakken.
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <span>Hoe werkt het ouder dashboard?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Als ouder krijg je een eigen inlog. Daar zie je real-time wat je kind oefent, hoeveel tijd wordt besteed, waar het goed gaat en waar extra aandacht nodig is. Je krijgt ook wekelijks een email met een samenvatting. Bij het Gezinsplan zie je alle kinderen in één gecombineerd dashboard.
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <span>Kan ik op elk moment opzeggen?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Ja, je kunt altijd opzeggen. Er zit geen minimumduur aan vast. Je betaalt per maand en kunt stoppen wanneer je wilt.
-                    </div>
-                </div>
-
-                <div class="faq-item" onclick="this.classList.toggle('active')">
-                    <div class="faq-question">
-                        <span>Is mijn data veilig?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Absoluut. We zijn AVG-compliant, gebruiken Nederlandse servers, en verkopen nooit data aan derden. Jouw privacy is onze prioriteit.
-                    </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Onbeperkt oefenen</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <div class="container">
-            <h2>Klaar om te starten?</h2>
-            <p>Sluit je aan bij honderden leerlingen die al hun examen glow-up hebben gestart</p>
-            <a href="https://app-526684575961.us-west1.run.app" class="btn-primary" style="font-size: 20px; padding: 20px 48px;">
-                Start 14 Dagen Gratis →
+    <!-- Features Section -->
+    <section id="features">
+        <div class="section-header">
+            <h2>Waarom GLOWEXAMEN?</h2>
+            <p class="section-subtitle">Alles wat bijles heeft, plus shit die écht werkt voor Gen Z</p>
+        </div>
+
+        <div class="features-grid">
+            <article class="feature-card">
+                <span class="feature-icon">🤖</span>
+                <h3>24/7 AI Coach</h3>
+                <p>Chat wanneer je wilt. Geen wachten op je bijles docent. Direct antwoorden, uitleg en hulp bij elke vraag over je examenstof.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">📝</span>
+                <h3>Proefexamens</h3>
+                <p>Echte examenvragen onder tijdsdruk. AI checkt je antwoorden en vertelt precies waar je het verprutst hebt en hoe je het fixt.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">🎴</span>
+                <h3>Flashcards</h3>
+                <p>Maak je eigen flashcards of gebruik AI. Spaced repetition zorgt dat je het écht onthoudt, niet alleen tot het examen.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">🎮</span>
+                <h3>XP & Levels</h3>
+                <p>Verdien XP, level up, build streaks. Leren wordt verslavend als een game. Competitive mode met je vrienden komt eraan.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Ouder Dashboard</h3>
+                <p>Je ouders zien wat je doet (sorry). Maar geen gezeur meer over "ben je wel aan het leren?" - ze zien je progress real-time.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">🧠</span>
+                <h3>AI Fouten Analyse</h3>
+                <p>AI detecteert patronen in je fouten. Maakt automatisch oefeningen voor onderwerpen waar jij moeite mee hebt. Smart shit.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">👥</span>
+                <h3>Squad Mode</h3>
+                <p>Leer met je vrienden. Vergelijk scores, challenge elkaar. Wie heeft de hoogste streak? Wie is de GOAT?</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">🧘</span>
+                <h3>Zen Zone</h3>
+                <p>Stress voor je examen? Breathing exercises, focus-tips en motivatie. We got you.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">📚</span>
+                <h3>Alle Vakken</h3>
+                <p>Nederlands, Wiskunde, Engels - alles voor VMBO, HAVO en VWO. Eén platform, alle examens.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="section-header">
+            <h2>Simpele prijzen</h2>
+            <p class="section-subtitle">Geen verrassingen. Gewoon eerlijk.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-name">Starter</div>
+                <div class="plan-price">€0<span>/maand</span></div>
+                <div class="plan-description">Probeer het uit</div>
+                <ul class="plan-features">
+                    <li>5 AI vragen per dag</li>
+                    <li>1 vak naar keuze</li>
+                    <li>10 flashcards</li>
+                    <li>Basis progress tracking</li>
+                </ul>
+                <a href="https://app-526684575961.us-west1.run.app" class="btn-secondary" style="width: 100%; text-align: center;">Start Gratis</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="featured-badge">🔥 Meest Gekozen</div>
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">€24,99<span>/maand</span></div>
+                <div class="plan-description">Voor 1 leerling</div>
+                <ul class="plan-features">
+                    <li>Onbeperkt AI chat</li>
+                    <li>Alle vakken & niveaus</li>
+                    <li>Onbeperkte proefexamens</li>
+                    <li>Onbeperkte flashcards</li>
+                    <li>XP, levels & streaks</li>
+                    <li>Squad features</li>
+                    <li>Zen Zone</li>
+                    <li>AI fouten analyse</li>
+                    <li>Ouder dashboard</li>
+                    <li>Wekelijkse updates</li>
+                </ul>
+                <a href="https://app-526684575961.us-west1.run.app" class="btn-primary" style="width: 100%; text-align: center;">Start 14 Dagen Gratis</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Gezin</div>
+                <div class="plan-price">€64,99<span>/maand</span></div>
+                <div class="plan-description">Tot 3 kinderen</div>
+                <ul class="plan-features">
+                    <li>Alle Pro features</li>
+                    <li>3 leerling-accounts</li>
+                    <li>€21,66 per kind</li>
+                    <li>Gecombineerd ouder dashboard</li>
+                    <li>Vergelijk prestaties</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="https://app-526684575961.us-west1.run.app" class="btn-secondary" style="width: 100%; text-align: center;">Start 14 Dagen Gratis</a>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 60px; color: var(--text-dim); font-size: 18px;">
+            💡 Bijles kost €50-60/uur = €200+ per maand. GLOWEXAMEN = €24,99 onbeperkt. Reken maar uit.
+        </p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="section-header">
+            <h2>Vragen?</h2>
+            <p class="section-subtitle">Alles wat je moet weten</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Kan ik niet gewoon ChatGPT gebruiken?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Sure, maar ChatGPT weet niks van Nederlandse eindexamens. GLOWEXAMEN is getraind op VWO/HAVO/VMBO examens. Plus: je ouders kunnen zien wat je doet (= geen gezeur), je hebt gamification (= actually fun), en een gestructureerd plan (= niet random vragen stellen). ChatGPT is generic. GLOWEXAMEN is voor jouw examen.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Werkt dit echt beter dan bijles?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Bijles = €50-60/uur, 1x per week, wachten tot je afspraak. GLOWEXAMEN = 24/7 beschikbaar, onbeperkte vragen, AI die leert van je fouten, en gamification die je gemotiveerd houdt. Plus €200/maand besparen. Zelfde resultaat, betere vibe, minder geld.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Voor welke vakken werkt dit?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Nu: Nederlands voor alle niveaus (VMBO/HAVO/VWO). Binnenkort: Wiskunde, Engels, Biologie, Geschiedenis, etc. Als je Pro member bent, krijg je automatisch toegang tot nieuwe vakken zonder extra kosten.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Wat zien mijn ouders precies?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Je ouders krijgen een eigen dashboard waar ze zien: hoeveel tijd je besteedt, welke vakken je oefent, je scores, en waar je moeite mee hebt. Ze krijgen ook wekelijks een email update. No cap - het is transparant. Maar wel handig want dan stoppen ze met zeuren over "ben je wel aan het leren?"
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Kan ik stoppen wanneer ik wil?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Ja. Geen lange contracten, geen gedoe. Betaal per maand, stop wanneer je wilt. Examen gehaald? Cancel. Werkt niet voor jou? Cancel. Easy.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">
+                    <span>Is mijn data veilig?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    100%. We zijn AVG-compliant, gebruiken Nederlandse servers, en verkopen je data NOOIT. Je privacy is heilig. Alle data is encrypted. We zijn geen sketchy startup - we doen dit goed.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section>
+        <div class="cta-section">
+            <h2 style="margin-bottom: 24px;">Klaar om te slagen?</h2>
+            <p style="font-size: 20px; color: var(--text-dim); margin-bottom: 40px;">
+                Start gratis. Geen creditcard nodig. Cancel wanneer je wilt.
+            </p>
+            <a href="https://app-526684575961.us-west1.run.app" class="btn-primary" style="font-size: 20px; padding: 24px 56px;">
+                Start Je Gratis Trial →
             </a>
-            <p style="margin-top: 20px; opacity: 0.8; font-size: 14px;">
-                Geen creditcard nodig • Opzeggen kan altijd
-            </p>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>GLOWEXAMEN</h4>
-                <p style="color: rgba(255,255,255,0.6); margin-bottom: 20px;">
-                    AI-gedreven examenvoorbereiding voor Nederlands onderwijs.
-                </p>
-                <p style="color: rgba(255,255,255,0.6); font-size: 14px;">
-                    Ontwikkeld in Nederland 🇳🇱
+                <p style="color: var(--text-dim); font-size: 14px; line-height: 1.6;">
+                    AI-examentraining voor VMBO, HAVO & VWO.<br>
+                    Made in Nederland 🇳🇱
                 </p>
             </div>
 
             <div class="footer-section">
                 <h4>Product</h4>
                 <a href="#features">Features</a>
-                <a href="#ouders">Voor Ouders</a>
                 <a href="#pricing">Prijzen</a>
                 <a href="https://app-526684575961.us-west1.run.app">Dashboard</a>
             </div>
 
             <div class="footer-section">
-                <h4>Ondersteuning</h4>
+                <h4>Support</h4>
                 <a href="#faq">FAQ</a>
                 <a href="mailto:support@glowexamen.nl">Contact</a>
                 <a href="#">Help Center</a>
@@ -1038,18 +889,26 @@
 
             <div class="footer-section">
                 <h4>Legal</h4>
-                <a href="#">Privacybeleid</a>
-                <a href="#">Algemene Voorwaarden</a>
-                <a href="#">AVG Compliance</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">AVG</a>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p>© 2025 GLOWEXAMEN. Alle rechten voorbehouden.</p>
-            <p style="margin-top: 8px; font-size: 14px;">
-                Een product van AIRA Technologies
-            </p>
         </div>
     </footer>
+
+    <script>
+        // Simple FAQ toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
