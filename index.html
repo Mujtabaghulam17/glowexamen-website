@@ -3,419 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOWEXAMEN | Powered by Aira</title>
-    <meta name="description" content="De nieuwe standaard in examentraining. Aangedreven door Aira technologie.">
     
+    <title>GLOWEXAMEN | Premium AI Examentraining | Powered by Aira</title>
+    <meta name="description" content="De nieuwe standaard in eindexamen training. Gedreven door Aira AI technologie. Versla examenstress met adaptieve AI-coaching. Voor HAVO, VWO & VMBO.">
+    <meta name="keywords" content="examentraining, AI bijles, Aira AI, examenstress, eindexamens 2025, havo vwo vmbo, adaptief leren, educatieve technologie">
+    <meta name="author" content="Aira AI">
+    <link rel="canonical" href="https://www.glowexamen.nl">
+    
+    <meta property="og:title" content="GlowExamen - Powered by Aira AI">
+    <meta property="og:description" content="Stop met stampen. Start met slim leren via de Aira Neural Core™. De #1 AI-examentraining van Nederland.">
+    <meta property="og:image" content="https://www.glowexamen.nl/og-image.jpg"> <meta property="og:url" content="https://www.glowexamen.nl">
+    <meta property="og:type" content="product">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "GlowExamen",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "24.99",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "description": "AI-gedreven examentraining platform dat zich aanpast aan het stressniveau en kennisniveau van de student.",
+          "author": {
+              "@type": "Organization",
+              "name": "Aira AI",
+              "url": "https://www.aira-ai.nl",
+              "logo": "https://www.aira-ai.nl/logo.png"
+          },
+          "isBasedOn": {
+              "@type": "Product",
+              "name": "Aira Neural Core™"
+          }
+        },
+        {
+          "@type": "Organization",
+          "name": "GlowExamen",
+          "parentOrganization": {
+              "@type": "Organization",
+              "name": "Aira AI",
+              "url": "https://www.aira-ai.nl"
+          }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Wat maakt GlowExamen anders dan andere examentrainingen?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "GlowExamen wordt aangedreven door Aira AI technologie. In plaats van statische vragen, past onze 'Neural Core' zich real-time aan op jouw kennisgaten en stressniveau."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is dit een product van Aira AI?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja, GlowExamen is ontwikkeld door Aira AI (www.aira-ai.nl), een toonaangevend Nederlands AI-technologiebedrijf."
+                    }
+                }
+            ]
+        }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-deep: #050507;
+            /* "Aira Dark" Theme */
+            --bg-deep: #020408;      /* Bijna zwart */
+            --bg-panel: #0B0D14;     /* Paneel achtergrond */
             --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glow-primary: #7000FF;
-            --glow-secondary: #00C2FF;
+            --glass-border: rgba(255, 255, 255, 0.06);
+            
+            /* Branding Colors */
+            --aira-blue: #3B82F6;    /* Tech Blue */
+            --glow-purple: #7C3AED;  /* Creative/Gen-Z Purple */
+            --glow-accent: #06B6D4;  /* Cyan highlights */
+            
+            /* Typography */
             --text-main: #FFFFFF;
-            --text-muted: #888899;
-            --aira-blue: #3B82F6;
+            --text-muted: #94A3B8;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-deep);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* Premium Background Mesh */
+        /* Background FX */
         .ambient-glow {
             position: fixed;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(112, 0, 255, 0.15), transparent 70%);
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: blur(120px);
+            top: -20%; left: 20%;
+            width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08), transparent 60%);
+            filter: blur(100px);
             z-index: -1;
-            animation: pulse 10s ease-in-out infinite alternate;
+            animation: pulseBlue 15s infinite alternate;
         }
         
-        @keyframes pulse {
-            0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
-            100% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
+        .ambient-glow-2 {
+            position: fixed;
+            bottom: -20%; right: -10%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.08), transparent 60%);
+            filter: blur(100px);
+            z-index: -1;
+            animation: pulsePurple 15s infinite alternate;
         }
 
-        /* Navigation: Tech Style */
+        @keyframes pulseBlue { 0% { opacity: 0.3; } 100% { opacity: 0.7; } }
+        @keyframes pulsePurple { 0% { opacity: 0.3; } 100% { opacity: 0.6; } }
+
+        /* Navigation */
         nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0; width: 100%;
             height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(5, 5, 7, 0.8);
-            backdrop-filter: blur(20px);
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(2, 4, 8, 0.85);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--glass-border);
-            z-index: 100;
+            z-index: 1000;
         }
 
         .nav-inner {
-            width: 100%;
-            max-width: 1200px;
-            padding: 0 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 100%; max-width: 1200px; padding: 0 24px;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        .brand-group {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
+        .brand-group { display: flex; align-items: center; gap: 16px; }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            color: white;
-            text-decoration: none;
-            letter-spacing: -0.5px;
+            font-family: var(--font-heading);
+            font-weight: 700; font-size: 24px; color: white;
+            text-decoration: none; letter-spacing: -0.5px;
         }
 
+        /* Aira Badge - The Trust Signal */
         .aira-badge {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 11px; font-family: var(--font-heading);
+            text-transform: uppercase; letter-spacing: 1px;
             color: var(--text-muted);
+            background: rgba(255,255,255,0.03);
             border: 1px solid var(--glass-border);
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 100px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s;
-            text-decoration: none;
+            display: flex; align-items: center; gap: 8px;
+            text-decoration: none; transition: all 0.3s;
         }
         
         .aira-badge:hover {
             border-color: var(--aira-blue);
             color: white;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
         }
 
         .aira-dot {
             width: 6px; height: 6px; background: var(--aira-blue); border-radius: 50%;
             box-shadow: 0 0 8px var(--aira-blue);
+            animation: blink 2s infinite;
         }
+        
+        @keyframes blink { 50% { opacity: 0.4; } }
 
         /* Hero Section */
         .hero {
-            padding-top: 180px;
-            padding-bottom: 100px;
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-top: 180px; padding-bottom: 100px;
+            text-align: center; max-width: 900px; margin: 0 auto;
+            padding-left: 24px; padding-right: 24px;
         }
 
         h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(48px, 5vw, 80px);
-            line-height: 1.1;
-            font-weight: 700;
-            letter-spacing: -2px;
+            font-family: var(--font-heading);
+            font-size: clamp(48px, 6vw, 80px);
+            line-height: 1.1; font-weight: 700; letter-spacing: -2px;
             margin-bottom: 24px;
-            background: linear-gradient(180deg, #FFFFFF 0%, #AAAAAA 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 20px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 40px;
+            font-size: 20px; color: var(--text-muted);
+            max-width: 600px; margin: 0 auto 40px;
         }
 
-        .cta-container {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-        }
-
+        /* Buttons */
         .btn {
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            transition: all 0.2s;
+            padding: 16px 32px; border-radius: 12px;
+            font-weight: 600; font-size: 16px; text-decoration: none;
+            transition: all 0.3s; display: inline-block;
         }
 
         .btn-glow {
-            background: white;
-            color: black;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+            background: white; color: black;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
         }
         
         .btn-glow:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.25);
         }
 
         .btn-glass {
-            background: var(--glass);
-            color: white;
+            background: var(--glass); color: white;
             border: 1px solid var(--glass-border);
         }
         
         .btn-glass:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05);
         }
 
-        /* Technology Section (Validation Aira) */
-        .tech-stack {
-            margin-top: 100px;
+        /* Tech Stack Strip */
+        .tech-strip {
             border-top: 1px solid var(--glass-border);
             border-bottom: 1px solid var(--glass-border);
-            background: rgba(255,255,255,0.01);
-            padding: 40px 0;
+            padding: 24px 0; margin-top: 80px;
+            background: rgba(2,4,8,0.5);
         }
         
         .tech-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            color: var(--text-muted);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 40px;
+            color: #475569; font-family: var(--font-heading);
+            font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
         }
         
-        .tech-content span { display: flex; align-items: center; gap: 10px; }
-        .tech-content svg { opacity: 0.6; }
+        .tech-item span { color: var(--aira-blue); opacity: 0.6; }
 
-        /* Grid Sections */
-        .grid-section {
-            max-width: 1200px;
-            margin: 100px auto;
-            padding: 0 24px;
-        }
+        /* Sections */
+        .container { max-width: 1200px; margin: 0 auto; padding: 100px 24px; }
         
         .section-label {
-            color: var(--glow-primary);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-            display: block;
+            color: var(--aira-blue); font-family: var(--font-heading);
+            font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;
+            display: block; margin-bottom: 16px;
         }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px; margin-top: 40px;
         }
 
         .card {
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            background: var(--bg-panel);
             border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 24px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 40px; border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative; overflow: hidden;
         }
         
         .card:hover {
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(59, 130, 246, 0.3);
             transform: translateY(-5px);
+            box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
         }
         
         .card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: white;
+            font-family: var(--font-heading); font-size: 22px; margin-bottom: 12px; color: white;
         }
         
         .card p { color: var(--text-muted); font-size: 16px; }
 
-        /* Comparison Table Redesign */
-        .comparison-container {
-            background: #0A0A0F;
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid var(--glass-border);
+        /* Comparison Table 2.0 */
+        .comparison-box {
+            background: var(--bg-panel); border-radius: 24px;
+            border: 1px solid var(--glass-border); padding: 40px;
             overflow-x: auto;
         }
         
-        table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        th { text-align: left; color: var(--text-muted); padding-bottom: 20px; border-bottom: 1px solid var(--glass-border); font-weight: 500; }
-        td { padding: 20px 0; border-bottom: 1px solid var(--glass-border); color: white; }
-        th:first-child, td:first-child { padding-left: 10px; }
+        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        th { text-align: left; padding-bottom: 24px; color: var(--text-muted); font-weight: 500; border-bottom: 1px solid var(--glass-border); }
+        td { padding: 24px 0; border-bottom: 1px solid var(--glass-border); color: white; font-size: 16px; }
         
-        .highlight-column { color: var(--glow-secondary); font-weight: 700; }
+        .col-glow { color: var(--aira-blue); font-weight: 700; font-family: var(--font-heading); }
+        .checkmark { color: var(--aira-blue); margin-right: 8px; }
+        .cross { color: #334155; }
 
         /* Footer */
         footer {
-            margin-top: 100px;
             border-top: 1px solid var(--glass-border);
-            padding: 60px 0;
-            text-align: center;
+            padding: 80px 24px 40px; background: #010203;
         }
         
-        .footer-link { color: var(--text-muted); text-decoration: none; font-size: 14px; margin: 0 10px; }
-        .footer-link:hover { color: white; }
+        .footer-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 60px;
+        }
+        
+        .footer-brand h4 { font-family: var(--font-heading); font-size: 20px; margin-bottom: 16px; }
+        .footer-links a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 12px; font-size: 14px; }
+        .footer-links a:hover { color: white; }
+        
+        .footer-bottom {
+            max-width: 1200px; margin: 60px auto 0; padding-top: 32px;
+            border-top: 1px solid var(--glass-border);
+            display: flex; justify-content: space-between; color: #334155; font-size: 13px;
+        }
 
-        /* Mobile */
         @media(max-width: 768px) {
-            .cta-container { flex-direction: column; }
-            .btn { text-align: center; }
-            .tech-content { flex-direction: column; gap: 20px; }
+            .cta-container { flex-direction: column; gap: 12px; }
+            .btn { width: 100%; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
 
     <nav>
         <div class="nav-inner">
             <div class="brand-group">
-                <a href="#" class="logo">GLOW<span style="color: var(--text-muted);">EXAMEN</span></a>
-                <a href="https://www.aira.ai.nl" target="_blank" class="aira-badge">
+                <a href="#" class="logo">GLOW<span style="color: #475569;">EXAMEN</span></a>
+                
+                <a href="https://www.aira-ai.nl" target="_blank" class="aira-badge" title="Bezoek moederbedrijf Aira AI">
                     <span class="aira-dot"></span>
-                    Product of Aira
+                    Powered by Aira
                 </a>
             </div>
-            <a href="https://app-526684575961.us-west1.run.app" class="btn btn-glass" style="padding: 8px 20px; font-size: 14px;">
+            <a href="https://app-526684575961.us-west1.run.app" class="btn btn-glass" style="padding: 10px 24px; font-size: 14px;">
                 Login
             </a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>De nieuwe standaard in examentraining.</h1>
+        <h1 class="gradient-text">
+            De #1 AI Examentraining.<br>
+            Engineered by Aira.
+        </h1>
         <p>
-            Geen bijles, maar technologie. GlowExamen gebruikt de geavanceerde AI-modellen van <strong>Aira</strong> om jouw leerproces te optimaliseren.
+            Geen standaard bijles, maar geavanceerde technologie. 
+            GlowExamen gebruikt de <strong>Aira Neural Core™</strong> om jouw eindexamens te 'hacken'. 
+            Minder stress, hogere cijfers.
         </p>
-        <div class="cta-container">
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
             <a href="https://app-526684575961.us-west1.run.app" class="btn btn-glow">
                 Start Gratis Trial
             </a>
             <a href="#tech" class="btn btn-glass">
-                Hoe het werkt
+                Bekijk de Technologie
             </a>
         </div>
     </header>
 
-    <div class="tech-stack">
+    <div class="tech-strip">
         <div class="tech-content">
-            <span>POWERED BY AIRA NEURAL CORE™</span>
-            <span>•</span>
-            <span>DUTCH EXAM SYLLABUS VERIFIED</span>
-            <span>•</span>
-            <span>REAL-TIME STRESS ANALYTICS</span>
+            <div class="tech-item"><span>///</span> AIRA NEURAL CORE™</div>
+            <div class="tech-item"><span>///</span> DUTCH SYLLABUS VERIFIED</div>
+            <div class="tech-item"><span>///</span> STRESS ANALYTICS</div>
+            <div class="tech-item"><span>///</span> REAL-TIME ADAPTATION</div>
         </div>
     </div>
 
-    <section class="grid-section" id="tech">
-        <span class="section-label">Waarom Glow wint</span>
-        <h2 style="font-family: 'Space Grotesk'; font-size: 40px; margin-bottom: 40px;">Technologie vs. Oude Methode</h2>
+    <section class="container" id="tech">
+        <span class="section-label">Markt Analyse</span>
+        <h2 style="font-family: var(--font-heading); font-size: 36px; margin-bottom: 40px;">Technologie vs. Traditioneel</h2>
         
-        <div class="comparison-container">
+        <div class="comparison-box">
             <table>
                 <thead>
                     <tr>
                         <th style="width: 40%">Feature</th>
-                        <th style="color: white;">GlowExamen</th>
+                        <th style="color: white;">GlowExamen (Aira)</th>
                         <th>Ouderwetse Bijles</th>
-                        <th>ChatGPT</th>
+                        <th>Standaard AI (ChatGPT)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Contextuele AI Coach</strong><br><span style="font-size: 12px; color: #666;">Snapt de context van je vorige vragen</span></td>
-                        <td class="highlight-column">Aira Core™</td>
-                        <td style="color: #444;">-</td>
-                        <td style="color: #888;">Beperkt</td>
+                        <td>
+                            <strong style="color: white;">Contextuele AI Coach</strong><br>
+                            <span style="font-size: 13px; opacity: 0.6;">Onthoudt wat je eerder fout deed</span>
+                        </td>
+                        <td class="col-glow">Aira Engine™</td>
+                        <td><span class="cross">—</span></td>
+                        <td>Beperkt</td>
                     </tr>
                     <tr>
-                        <td><strong>Syllabus Dekking</strong><br><span style="font-size: 12px; color: #666;">Specifiek voor NL eindexamens</span></td>
-                        <td class="highlight-column">100%</td>
-                        <td>Variabel</td>
-                        <td style="color: #888;">Nee</td>
+                        <td>
+                            <strong style="color: white;">NL Examen Syllabus</strong><br>
+                            <span style="font-size: 13px; opacity: 0.6;">Specifiek voor HAVO/VWO/VMBO</span>
+                        </td>
+                        <td class="col-glow">100% Dekking</td>
+                        <td>Afhankelijk van docent</td>
+                        <td><span class="cross">Nee (te algemeen)</span></td>
                     </tr>
                     <tr>
-                        <td><strong>Stress Management</strong><br><span style="font-size: 12px; color: #666;">Voorkomt burnout tijdens leren</span></td>
-                        <td class="highlight-column">Ja</td>
-                        <td style="color: #444;">-</td>
-                        <td style="color: #444;">-</td>
+                        <td>
+                            <strong style="color: white;">Stress Preventie (Zen)</strong><br>
+                            <span style="font-size: 13px; opacity: 0.6;">Detecteert leer-vermoeidheid</span>
+                        </td>
+                        <td class="col-glow">Ingebouwd</td>
+                        <td><span class="cross">—</span></td>
+                        <td><span class="cross">—</span></td>
                     </tr>
                      <tr>
-                        <td><strong>Kosten</strong></td>
-                        <td class="highlight-column">€24,99</td>
-                        <td>€240+</td>
-                        <td>€20,00</td>
+                        <td><strong style="color: white;">Investering</strong></td>
+                        <td class="col-glow">€24,99 /mnd</td>
+                        <td>€240,00 /mnd</td>
+                        <td>€20,00 /mnd</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <section class="grid-section">
-        <span class="section-label">Features</span>
-        <div class="features-grid">
+    <section class="container">
+        <span class="section-label">Platform Features</span>
+        <h2 style="font-family: var(--font-heading); font-size: 36px; max-width: 600px;">Alles wat je nodig hebt om te slagen.</h2>
+        
+        <div class="grid-3">
             <div class="card">
-                <h3>Smart Syllabus</h3>
-                <p>Ons systeem scant de officiële eindexameneisen en bouwt een leerpad dat zich aanpast aan wat jij al weet. Geen tijdverspilling.</p>
+                <h3>Adaptive Syllabus</h3>
+                <p>Ons systeem bouwt een uniek leerpad gebaseerd op jouw zwakke punten. Waarom leren wat je al weet? Focus op wat telt.</p>
             </div>
             <div class="card">
-                <h3>Aira Neural Search</h3>
-                <p>Vind antwoorden niet op basis van trefwoorden, maar op basis van begrip. De zoekfunctie snapt wat je écht bedoelt.</p>
+                <h3>Zen Zone™</h3>
+                <p>Mentale gezondheid is prioriteit #1. Als de AI merkt dat je stresst, schakelt de interface over naar rustgevende focus-mode.</p>
             </div>
             <div class="card">
-                <h3>Parental Insight</h3>
-                <p>Transparantie voor ouders via een dedicated dashboard. Monitor voortgang zonder te hoeven micromanagen.</p>
+                <h3>Ouder Dashboard</h3>
+                <p>Transparantie zonder gezeur. Ouders kunnen inloggen en zien precies de voortgang, zonder dat ze jou hoeven te controleren.</p>
             </div>
         </div>
     </section>
 
-    <section class="grid-section" style="text-align: center; max-width: 800px;">
-        <h2 style="font-family: 'Space Grotesk'; font-size: 40px; margin-bottom: 20px;">Klaar voor de toekomst?</h2>
-        <p style="margin-bottom: 40px; color: var(--text-muted);">
-            Sluit je aan bij de revolutie in het onderwijs.
-        </p>
-        <a href="https://app-526684575961.us-west1.run.app" class="btn btn-glow" style="padding: 20px 60px; font-size: 18px;">
-            Start Nu
-        </a>
-        <p style="margin-top: 20px; font-size: 12px; color: var(--text-muted);">14 dagen gratis • Opzeggen wanneer je wilt</p>
+    <section class="container" style="text-align: center; margin-top: 40px;">
+        <div style="background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, rgba(2,4,8,0) 70%); padding: 80px 24px; border-radius: 40px; border: 1px solid var(--glass-border);">
+            <h2 style="font-family: var(--font-heading); font-size: 42px; margin-bottom: 24px;">
+                Klaar voor de upgrade?
+            </h2>
+            <p style="color: var(--text-muted); font-size: 18px; margin-bottom: 40px;">
+                Sluit je aan bij de slimste leerlingen van Nederland.
+            </p>
+            <a href="https://app-526684575961.us-west1.run.app" class="btn btn-glow" style="padding: 20px 60px;">
+                Start Gratis Trial
+            </a>
+            <p style="margin-top: 20px; font-size: 13px; color: #475569;">Powered by Aira Technology</p>
+        </div>
     </section>
 
     <footer>
-        <div style="margin-bottom: 20px;">
-            <a href="#" class="footer-link">Privacy</a>
-            <a href="#" class="footer-link">Terms</a>
-            <a href="https://www.aira.ai.nl" class="footer-link">About Aira</a>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h4>GLOWEXAMEN</h4>
+                <p style="color: var(--text-muted); font-size: 14px;">
+                    De nummer 1 AI-examentraining van Nederland. <br>
+                    Ontwikkeld door Aira AI.
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="font-size: 16px;">Product</h4>
+                <a href="#tech">Technologie</a>
+                <a href="https://app-526684575961.us-west1.run.app">Prijzen & Login</a>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="font-size: 16px;">Company</h4>
+                <a href="https://www.aira-ai.nl">Over Aira AI</a>
+                <a href="https://www.aira-ai.nl/contact">Contact</a>
+            </div>
         </div>
-        <p style="font-size: 12px; color: #444;">
-            &copy; 2025 GlowExamen. A product of <a href="https://www.aira.ai.nl" style="color: #666; text-decoration: none;">Aira</a>.
-        </p>
+        
+        <div class="footer-bottom">
+            <div>
+                &copy; 2025 GlowExamen. Een product van <a href="https://www.aira-ai.nl" style="color: var(--text-muted); text-decoration: underline;">Aira AI</a>.
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <a href="#" style="color: inherit; text-decoration: none;">Privacy</a>
+                <a href="#" style="color: inherit; text-decoration: none;">Terms</a>
+            </div>
+        </div>
     </footer>
 
 </body>
