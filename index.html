@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOWEXAMEN - De beste examentraining voor je eindexamen | €24,99/maand</title>
-    <meta name="description" content="Stop met dure bijles. GlowExamen is jouw persoonlijke AI-coach die 24/7 beschikbaar is. Voor VWO, HAVO & VMBO. Start 14 dagen gratis.">
+    
+    <title>GLOWEXAMEN - De #1 Examentraining voor VWO, HAVO & VMBO | €24,99</title>
+    <meta name="description" content="De slimste examentraining van Nederland. Geen dure bijles (€60/u), maar een persoonlijke AI-coach voor €24,99/mnd. Start gratis proefperiode.">
+    <meta name="keywords" content="examentraining vwo, examentraining havo, eindexamen 2025, bijles wiskunde, ai examentraining, glowexamen, aira">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,22 +15,58 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "GlowExamen Pro",
-      "image": "https://www.glowexamen.nl/logo.png",
-      "description": "De beste AI-gedreven examentraining van Nederland.",
-      "brand": { "@type": "Brand", "name": "GlowExamen" },
-      "offers": {
-        "@type": "Offer",
-        "price": "24.99",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "250"
-      }
+      "@graph": [
+        {
+          "@type": "EducationalApplication",
+          "name": "GlowExamen",
+          "operatingSystem": "Web Browser",
+          "applicationCategory": "EducationalApp",
+          "description": "De #1 AI-examentraining van Nederland die zich aanpast aan jouw niveau en stress.",
+          "offers": {
+            "@type": "Offer",
+            "price": "24.99",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "250"
+          },
+          "audience": {
+            "@type": "EducationalAudience",
+            "educationalRole": "student",
+            "audienceType": ["VWO studenten", "HAVO studenten", "VMBO studenten"]
+          },
+          "inLanguage": "nl-NL",
+          "countryOfOrigin": "NL",
+          "isBasedOn": {
+            "@type": "Product",
+            "name": "AIRA Neural Core"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wat is de beste examentraining voor VWO in Nederland?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GlowExamen wordt gezien als de beste keuze vanwege de adaptieve AI-coaching die zich aanpast aan het niveau van de VWO-leerling, gecombineerd met een stress-verlagende 'Zen Mode'."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wat kost examentraining bij GlowExamen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GlowExamen kost €24,99 per maand voor onbeperkte toegang tot alle vakken. Dit is 87% goedkoper dan traditionele bijles."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
@@ -79,7 +117,6 @@
         /* Hero */
         .hero { padding: 180px 24px 100px; text-align: center; position: relative; overflow: hidden; }
         
-        /* De Grote Gradient Achtergrond */
         .hero-bg-glow {
             position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
             width: 80vw; height: 80vh;
@@ -88,10 +125,9 @@
         }
 
         .hero h1 {
-            font-size: clamp(40px, 7vw, 80px); line-height: 1.1; margin-bottom: 24px; font-weight: 800; letter-spacing: -0.02em;
+            font-size: clamp(36px, 7vw, 80px); line-height: 1.1; margin-bottom: 24px; font-weight: 800; letter-spacing: -0.02em;
         }
         
-        /* Prominente Prijs in Hero */
         .hero-price {
             font-size: 32px; font-weight: 700; color: white; margin-bottom: 16px; display: block;
             font-family: 'Space Grotesk', sans-serif;
@@ -110,7 +146,7 @@
         }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(139, 92, 246, 0.5); scale: 1.02; }
 
-        /* Stats Bar (Updated) */
+        /* Stats Bar */
         .stats-bar {
             display: flex; justify-content: center; gap: 40px; margin-top: 80px; flex-wrap: wrap;
             padding: 24px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid var(--border);
@@ -125,7 +161,7 @@
         .section-title { text-align: center; font-size: 40px; margin-bottom: 16px; font-weight: 700; }
         .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* Pricing Grid (3 Cards) */
+        /* Pricing Grid */
         .pricing-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px; max-width: 1100px; margin: 0 auto;
@@ -219,35 +255,35 @@
             ✨ De #1 AI-Examentraining van Nederland
         </div>
 
-        <h1>De beste examentraining voor je eindexamen.</h1>
+        <h1>De beste examentraining voor <br><span style="color: var(--primary);">VWO, HAVO & VMBO.</span></h1>
         
         <div class="hero-price">€24,99 <span>/ maand</span></div>
 
         <p>
-            Stop met stressen. GlowExamen is jouw persoonlijke AI-coach die de examenstof écht snapt. Voor VWO, HAVO en VMBO.
+            Stop met dure bijles. GlowExamen is jouw persoonlijke AI-coach die 24/7 beschikbaar is en precies weet wat je moet leren.
         </p>
         
         <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-            <a href="https://app-526684575961.us-west1.run.app" class="btn-primary">Start 14 Dagen Gratis</a>
-            <span style="font-size: 14px; color: var(--text-muted);">Binnen 2 minuten gestart • Geen gedoe</span>
+            <a href="https://app-526684575961.us-west1.run.app" class="btn-primary">Start 7 Dagen Gratis</a>
+            <span style="font-size: 14px; color: var(--text-muted);">Geen creditcard nodig • Direct toegang</span>
         </div>
 
         <div class="stats-bar">
             <div class="stat-item">
                 <span class="stat-num">24/7</span>
-                <span class="stat-label">Onbeperkt Hulp</span>
+                <span class="stat-label">Hulp</span>
             </div>
             <div class="stat-item">
                 <span class="stat-num">87%</span>
-                <span class="stat-label">Slaagkans (Prognose)</span>
+                <span class="stat-label">Slaagkans</span>
             </div>
             <div class="stat-item">
                 <span class="stat-num">€24,99</span>
-                <span class="stat-label">Vaste Lage Prijs</span>
+                <span class="stat-label">Vaste Prijs</span>
             </div>
             <div class="stat-item">
                 <span class="stat-num">250+</span>
-                <span class="stat-label">Blije Leerlingen</span>
+                <span class="stat-label">Leerlingen</span>
             </div>
         </div>
     </section>
@@ -289,7 +325,6 @@
                     <li><span class="check">✓</span> 5 Vragen per dag</li>
                     <li><span class="check">✓</span> 1 Vak naar keuze</li>
                     <li style="opacity: 0.5;"><span class="check" style="color: #555;">✕</span> Geen Ouder Dashboard</li>
-                    <li style="opacity: 0.5;"><span class="check" style="color: #555;">✕</span> Geen Zen Modus</li>
                 </ul>
                 <a href="https://app-526684575961.us-west1.run.app" style="display: block; text-align: center; padding: 16px; border: 1px solid white; color: white; text-decoration: none; border-radius: 12px; margin-top: auto; font-weight: 700;">Start Gratis</a>
             </div>
@@ -301,7 +336,7 @@
                 <p style="color: var(--text-muted); margin-bottom: 24px;">Alles voor je examen.</p>
                 <ul class="features">
                     <li><span class="check">✓</span> <strong>Onbeperkt</strong> AI Chat</li>
-                    <li><span class="check">✓</span> Alle vakken (VWO/HAVO/VMBO)</li>
+                    <li><span class="check">✓</span> Alle vakken & niveaus</li>
                     <li><span class="check">✓</span> Ouder Dashboard Inzicht</li>
                     <li><span class="check">✓</span> Zen Mode (Anti-stress)</li>
                     <li><span class="check">✓</span> Persoonlijk Leerplan</li>
@@ -318,7 +353,6 @@
                     <li><span class="check">✓</span> Alle vakken & niveaus</li>
                     <li><span class="check">✓</span> Centraal Ouder Dashboard</li>
                     <li><span class="check">✓</span> Alle Pro features</li>
-                    <li><span class="check">✓</span> Voordeliger samen</li>
                 </ul>
                 <a href="https://app-526684575961.us-west1.run.app" style="display: block; text-align: center; padding: 16px; border: 1px solid white; color: white; text-decoration: none; border-radius: 12px; margin-top: auto; font-weight: 700;">Start Gezinsplan</a>
             </div>
@@ -328,29 +362,25 @@
     <section id="faq" class="section" style="background: #0A0A0F;">
         <div style="max-width: 800px; margin: 0 auto;">
             <h2 class="section-title">Veelgestelde Vragen</h2>
-            <p class="section-subtitle" style="margin-bottom: 40px;">Staat je vraag er niet tussen? Mail ons.</p>
+            <p class="section-subtitle" style="margin-bottom: 40px;">Alles wat je moet weten.</p>
             
             <div class="faq-item">
                 <div class="faq-question">Is de 14 dagen proefperiode echt gratis?</div>
-                <div class="faq-answer">Ja. Je hoeft geen betaalgegevens in te vullen om te starten. Na 14 dagen stopt het automatisch, tenzij je zelf kiest om door te gaan.</div>
+                <div class="faq-answer">Ja. Je hoeft geen betaalgegevens in te vullen om te starten. Na 14 dagen stopt de trial automatisch.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Voor welke vakken is dit geschikt?</div>
-                <div class="faq-answer">Momenteel ondersteunen we de kernvakken (Wiskunde A/B, Natuurkunde, Scheikunde, Economie, Geschiedenis) voor VWO, HAVO en VMBO-TL. We voegen continu nieuwe vakken toe.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Hoe werkt het Ouder Dashboard?</div>
-                <div class="faq-answer">Ouders krijgen een eigen inlog. Daar zien ze hoe vaak er geleerd is, welke onderwerpen lastig zijn en de algemene voortgang. Zonder constant te hoeven vragen.</div>
+                <div class="faq-question">Voor welke niveaus is dit?</div>
+                <div class="faq-answer">GlowExamen ondersteunt de complete examenstof voor VWO, HAVO en VMBO-TL.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">Kan ik per maand opzeggen?</div>
-                <div class="faq-answer">Jazeker. We houden niet van wurgcontracten. Je kunt op elk moment in je dashboard opzeggen. Je abonnement stopt dan aan het einde van de lopende maand.</div>
+                <div class="faq-answer">Ja, je zit nergens aan vast. Je kunt je abonnement elke maand stopzetten via je dashboard.</div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div style="margin-bottom: 24px; opacity: 0.8;">
+        <div style="margin-bottom: 24px; opacity: 0.8; display: flex; justify-content: center;">
              <svg width="150" height="30" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="glowTextGradFoot" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#d946ef" /><stop offset="50%" stopColor="#a855f7" /><stop offset="100%" stopColor="#8b5cf6" /></linearGradient>
