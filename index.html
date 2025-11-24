@@ -16,6 +16,13 @@
     <meta property="og:title" content="GLOWEXAMEN - Hack je Eindexamens">
     <meta property="og:description" content="Stop met dure bijles. Onbeperkt toegang tot examenvakken vanaf €14,99/maand. Inclusief AI-coach en Ouder Dashboard.">
     <meta property="og:image" content="https://www.glowexamen.nl/og-image.jpg">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:site_name" content="GlowExamen">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GLOWEXAMEN - De #1 AI Examentraining">
+    <meta name="twitter:description" content="Haal hogere cijfers zonder stress. Start vandaag nog je gratis proefperiode.">
+    <meta name="twitter:image" content="https://www.glowexamen.nl/og-image.jpg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,7 +189,7 @@
         .section-title { text-align: center; font-size: 40px; margin-bottom: 16px; font-weight: 700; }
         .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* Pricing Grid (4 Cards) */
+        /* Pricing Grid */
         .pricing-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px; max-width: 1200px; margin: 0 auto;
@@ -403,7 +410,7 @@
                     <li><span class="check">✓</span> <strong>3 Premium Accounts</strong></li>
                     <li><span class="check">✓</span> Alle vakken & niveaus</li>
                     <li><span class="check">✓</span> Centraal Ouder Dashboard</li>
-                    <li><span class="check">✓</span> Alle Pro features</li>
+                    <li><span class="check">✓</span> Voordeliger samen</li>
                 </ul>
                 <a href="https://app-526684575961.us-west1.run.app" class="card-btn">Start Gezinsplan</a>
             </div>
@@ -430,15 +437,27 @@
         </div>
     </section>
 
-    <footer>
+    <footer style="background: #020203; border-top: 1px solid var(--border); padding-top: 60px;">
+        
+        <div style="max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 40px;">
+            <div style="display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 13px;">
+                <span style="font-size: 18px;">🇪🇺</span> 
+                <span><strong>Data in Europa</strong> (Geen US Servers)</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 13px;">
+                <span style="font-size: 18px;">🔒</span> 
+                <span><strong>AVG / GDPR</strong> Compliant</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 13px;">
+                <span style="font-size: 18px;">🛡️</span> 
+                <span><strong>EU AI Act</strong> Ready</span>
+            </div>
+        </div>
+
         <div style="margin-bottom: 24px; opacity: 0.8; display: flex; justify-content: center;">
              <svg width="150" height="30" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="glowTextGradFoot" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#f0abfc" />
-                        <stop offset="50%" stop-color="#d8b4fe" />
-                        <stop offset="100%" stop-color="#c4b5fd" />
-                    </linearGradient>
+                    <linearGradient id="glowTextGradFoot" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f0abfc" /><stop offset="50%" stop-color="#d8b4fe" /><stop offset="100%" stop-color="#c4b5fd" /></linearGradient>
                 </defs>
                 <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradFoot)" stroke-width="5" stroke-linecap="round" />
                 <circle cx="45" cy="20" r="4" fill="#f0abfc" />
@@ -447,17 +466,20 @@
             </svg>
         </div>
         
-        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 32px;">
-            <a href="#" class="nav-link">Privacybeleid</a>
+        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; flex-wrap: wrap;">
+            <a href="privacy.html" class="nav-link">Privacy & AI Veiligheid</a>
             <a href="#" class="nav-link">Algemene Voorwaarden</a>
             <a href="mailto:support@glowexamen.nl" class="nav-link">Contact</a>
         </div>
-        <p>&copy; 2025 GlowExamen. Alle rechten voorbehouden.</p>
         
-        <a href="https://www.aira-ai.nl" class="aira-link" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12 2.1 12a10.1 10.1 0 0 0 9.9 9.9V12z"></path><path d="M21.9 12H12V2.1A10.1 10.1 0 0 1 21.9 12z"></path></svg>
-            Technology powered by <strong>AIRA AI</strong>
-        </a>
+        <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">&copy; 2025 GlowExamen. Alle rechten voorbehouden.</p>
+        
+        <div style="text-align: center; padding-bottom: 40px;">
+            <a href="https://www.aira-ai.nl" class="aira-link" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12 2.1 12a10.1 10.1 0 0 0 9.9 9.9V12z"></path><path d="M21.9 12H12V2.1A10.1 10.1 0 0 1 21.9 12z"></path></svg>
+                Technology powered by <strong>AIRA AI</strong>
+            </a>
+        </div>
     </footer>
 
 </body>
