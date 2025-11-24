@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>GLOWEXAMEN - De #1 Examentraining voor VWO, HAVO & VMBO | €24,99</title>
-    <meta name="description" content="De slimste examentraining van Nederland. Geen dure bijles (€60/u), maar een persoonlijke AI-coach voor €24,99/mnd. Start 7 dagen gratis.">
+    <title>GLOWEXAMEN - De #1 Examentraining voor VWO, HAVO & VMBO | Vanaf €14,99</title>
+    <meta name="description" content="De slimste examentraining van Nederland. Kies voor 1 vak (€14,99) of alle vakken (€24,99). Persoonlijke AI-coach die 24/7 beschikbaar is. Start gratis.">
     <meta name="keywords" content="examentraining vwo, examentraining havo, eindexamen 2025, bijles wiskunde, ai examentraining, glowexamen, aira">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +22,22 @@
           "operatingSystem": "Web Browser",
           "applicationCategory": "EducationalApp",
           "description": "De #1 AI-examentraining van Nederland die zich aanpast aan jouw niveau en stress.",
-          "offers": {
-            "@type": "Offer",
-            "price": "24.99",
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock"
-          },
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Focus (1 Vak)",
+              "price": "14.99",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock"
+            },
+            {
+              "@type": "Offer",
+              "name": "Totaal (Alle Vakken)",
+              "price": "24.99",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock"
+            }
+          ],
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.8",
@@ -50,18 +60,10 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Wat is de beste examentraining voor VWO in Nederland?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "GlowExamen wordt gezien als de beste keuze vanwege de adaptieve AI-coaching die zich aanpast aan het niveau van de VWO-leerling."
-              }
-            },
-            {
-              "@type": "Question",
               "name": "Wat kost examentraining bij GlowExamen?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "GlowExamen kost €24,99 per maand. Je kunt het eerst 7 dagen gratis proberen."
+                "text": "Je kunt kiezen voor 1 vak onbeperkt voor €14,99 per maand, of alle vakken onbeperkt voor €24,99 per maand."
               }
             }
           ]
@@ -96,7 +98,7 @@
         /* Navigatie */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
-            background: rgba(5, 5, 7, 0.8); backdrop-filter: blur(12px);
+            background: rgba(5, 5, 7, 0.9); backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             padding: 12px 24px;
         }
@@ -129,10 +131,11 @@
         }
         
         .hero-price {
-            font-size: 32px; font-weight: 700; color: white; margin-bottom: 16px; display: block;
+            font-size: 28px; font-weight: 700; color: white; margin-bottom: 16px; display: block;
             font-family: 'Space Grotesk', sans-serif;
         }
-        .hero-price span { color: var(--text-muted); font-size: 20px; font-weight: 400;}
+        .hero-price span { color: var(--text-muted); font-size: 18px; font-weight: 400;}
+        .hero-price .highlight { color: var(--primary); }
 
         .hero p {
             font-size: 20px; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px;
@@ -161,36 +164,51 @@
         .section-title { text-align: center; font-size: 40px; margin-bottom: 16px; font-weight: 700; }
         .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* Pricing Grid */
+        /* Pricing Grid (4 Cards now!) */
         .pricing-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px; max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px; max-width: 1200px; margin: 0 auto;
         }
 
         .plan-card {
             background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 24px; padding: 40px; position: relative; display: flex; flex-direction: column;
+            border-radius: 24px; padding: 32px; position: relative; display: flex; flex-direction: column;
+            transition: transform 0.2s;
         }
+        .plan-card:hover { border-color: rgba(255,255,255,0.2); }
         
         .plan-card.featured {
             border-color: var(--primary);
             background: linear-gradient(180deg, rgba(139, 92, 246, 0.08), var(--card-bg));
-            transform: scale(1.05); z-index: 10;
+            transform: scale(1.02); z-index: 10;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
         
         .tag {
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
             background: var(--primary); color: white; font-size: 12px; font-weight: 700;
-            padding: 4px 12px; border-radius: 100px;
+            padding: 4px 12px; border-radius: 100px; white-space: nowrap;
         }
 
-        .price { font-size: 48px; font-weight: 700; color: white; margin: 16px 0; font-family: 'Space Grotesk', sans-serif;}
-        .price span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+        .price { font-size: 40px; font-weight: 700; color: white; margin: 16px 0; font-family: 'Space Grotesk', sans-serif;}
+        .price span { font-size: 14px; color: var(--text-muted); font-weight: 400; }
         
-        .features { list-style: none; margin: 32px 0; flex-grow: 1; }
-        .features li { display: flex; gap: 12px; margin-bottom: 16px; color: #E5E7EB; font-size: 15px; align-items: center; }
-        .check { color: #10B981; font-weight: bold; }
+        .features { list-style: none; margin: 24px 0; flex-grow: 1; }
+        .features li { display: flex; gap: 10px; margin-bottom: 12px; color: #E5E7EB; font-size: 14px; align-items: center; }
+        .check { color: #10B981; font-weight: bold; flex-shrink: 0; }
+        .cross { color: #555; font-weight: bold; flex-shrink: 0; }
+
+        .card-btn {
+            display: block; text-align: center; padding: 14px; border: 1px solid white; 
+            color: white; text-decoration: none; border-radius: 12px; margin-top: auto; font-weight: 700; font-size: 14px;
+            transition: 0.2s;
+        }
+        .card-btn:hover { background: white; color: black; }
+        
+        .card-btn-primary {
+            background: var(--primary); border: 1px solid var(--primary); color: white;
+        }
+        .card-btn-primary:hover { background: #7c3aed; border-color: #7c3aed; color: white; }
 
         /* FAQ */
         .faq-item {
@@ -209,6 +227,7 @@
             .plan-card.featured { transform: scale(1); }
             .nav-links { display: none; }
             .hero { padding-top: 140px; }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -220,17 +239,17 @@
                 <svg width="180" height="36" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="glowTextGradNav" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#d946ef" />
-                            <stop offset="50%" stopColor="#a855f7" />
-                            <stop offset="100%" stopColor="#8b5cf6" />
+                            <stop offset="0%" stopColor="#f0abfc" />
+                            <stop offset="50%" stopColor="#d8b4fe" />
+                            <stop offset="100%" stopColor="#c4b5fd" />
                         </linearGradient>
                         <filter id="glowBlurNav" x="-10" y="-10" width="50" height="100">
-                            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                             <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
                         </filter>
                     </defs>
-                    <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradNav)" strokeWidth="5" strokeLinecap="round" filter="url(#glowBlurNav)"/>
-                    <circle cx="45" cy="20" r="4" fill="#d946ef" filter="url(#glowBlurNav)"/>
+                    <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradNav)" strokeWidth="6" strokeLinecap="round" filter="url(#glowBlurNav)"/>
+                    <circle cx="45" cy="20" r="5" fill="#f0abfc" filter="url(#glowBlurNav)"/>
                     <text x="60" y="55" fontFamily="'Space Grotesk', sans-serif" fontWeight="900" fontSize="48" fill="url(#glowTextGradNav)" letterSpacing="-1">GLOW</text>
                     <text x="205" y="55" fontFamily="'Space Grotesk', sans-serif" fontWeight="700" fontSize="48" fill="#FFFFFF" letterSpacing="-1">EXAMEN</text>
                 </svg>
@@ -257,10 +276,12 @@
 
         <h1>De beste examentraining voor <br><span style="color: var(--primary);">VWO, HAVO & VMBO.</span></h1>
         
-        <div class="hero-price">€24,99 <span>/ maand</span></div>
+        <div class="hero-price">
+            Vanaf <span class="highlight">€14,99</span> <span>/ maand</span>
+        </div>
 
         <p>
-            Stop met dure bijles. GlowExamen is jouw persoonlijke AI-coach die 24/7 beschikbaar is en precies weet wat je moet leren.
+            Stop met dure bijles. Kies voor één vak of ga voor het totaalpakket. Jouw persoonlijke AI-coach staat 24/7 klaar.
         </p>
         
         <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
@@ -278,8 +299,8 @@
                 <span class="stat-label">Slaagkans</span>
             </div>
             <div class="stat-item">
-                <span class="stat-num">€24,99</span>
-                <span class="stat-label">Vaste Prijs</span>
+                <span class="stat-num">€14,99</span>
+                <span class="stat-label">Vanaf prijs</span>
             </div>
             <div class="stat-item">
                 <span class="stat-num">250+</span>
@@ -313,8 +334,8 @@
     </section>
 
     <section id="pricing" class="pricing section">
-        <h2 class="section-title">Simpele Prijzen.</h2>
-        <p class="section-subtitle">Kies het pakket dat bij jou past. Maandelijks opzegbaar.</p>
+        <h2 class="section-title">Kies je pakket.</h2>
+        <p class="section-subtitle">Of je nu hulp nodig hebt bij één vak, of bij allemaal.</p>
 
         <div class="pricing-grid">
             <div class="plan-card">
@@ -324,37 +345,49 @@
                 <ul class="features">
                     <li><span class="check">✓</span> 5 Vragen per dag</li>
                     <li><span class="check">✓</span> 1 Vak naar keuze</li>
-                    <li style="opacity: 0.5;"><span class="check" style="color: #555;">✕</span> Geen Ouder Dashboard</li>
+                    <li style="opacity: 0.5;"><span class="cross">✕</span> Geen Ouder Dashboard</li>
                 </ul>
-                <a href="https://app-526684575961.us-west1.run.app" style="display: block; text-align: center; padding: 16px; border: 1px solid white; color: white; text-decoration: none; border-radius: 12px; margin-top: auto; font-weight: 700;">Start Gratis</a>
+                <a href="https://app-526684575961.us-west1.run.app" class="card-btn">Start Gratis</a>
+            </div>
+
+            <div class="plan-card">
+                <h3>Focus</h3>
+                <div class="price">€14,99<span>/maand</span></div>
+                <p style="color: var(--text-muted); margin-bottom: 24px;">Voor je struikelvak.</p>
+                <ul class="features">
+                    <li><span class="check">✓</span> <strong>Onbeperkt</strong> AI voor 1 vak</li>
+                    <li><span class="check">✓</span> Zen Mode & Foutenanalyse</li>
+                    <li><span class="check">✓</span> Ouder Dashboard</li>
+                    <li style="opacity: 0.5;"><span class="cross">✕</span> Beperkt tot 1 vak</li>
+                </ul>
+                <a href="https://app-526684575961.us-west1.run.app" class="card-btn">Kies 1 Vak</a>
             </div>
 
             <div class="plan-card featured">
-                <div class="tag">MEEST GEKOZEN</div>
-                <h3>Pro</h3>
+                <div class="tag">TIJDELIJKE DEAL</div>
+                <h3>Totaal</h3>
                 <div class="price">€24,99<span>/maand</span></div>
-                <p style="color: var(--text-muted); margin-bottom: 24px;">Alles voor je examen.</p>
+                <p style="color: var(--text-muted); margin-bottom: 24px;">Alle vakken onbeperkt.</p>
                 <ul class="features">
-                    <li><span class="check">✓</span> <strong>Onbeperkt</strong> AI Chat</li>
-                    <li><span class="check">✓</span> Alle vakken & niveaus</li>
-                    <li><span class="check">✓</span> Ouder Dashboard Inzicht</li>
-                    <li><span class="check">✓</span> Zen Mode (Anti-stress)</li>
+                    <li><span class="check">✓</span> <strong>Onbeperkt</strong> AI voor ALLE vakken</li>
+                    <li><span class="check">✓</span> Geschikt voor VWO/HAVO/VMBO</li>
                     <li><span class="check">✓</span> Persoonlijk Leerplan</li>
+                    <li><span class="check">✓</span> 24/7 Huiswerk Coach</li>
                 </ul>
-                <a href="https://app-526684575961.us-west1.run.app" class="btn-primary" style="width: 100%; text-align: center;">Start 7 Dagen Gratis</a>
+                <a href="https://app-526684575961.us-west1.run.app" class="card-btn card-btn-primary">Start 7 Dagen Gratis</a>
             </div>
 
              <div class="plan-card">
                 <h3>Gezin</h3>
                 <div class="price">€64,99<span>/maand</span></div>
-                <p style="color: var(--text-muted); margin-bottom: 24px;">Voor broers en zussen.</p>
+                <p style="color: var(--text-muted); margin-bottom: 24px;">3 accounts (broers/zussen).</p>
                 <ul class="features">
-                    <li><span class="check">✓</span> <strong>3 Accounts</strong> (Onbeperkt)</li>
+                    <li><span class="check">✓</span> <strong>3 Premium Accounts</strong></li>
                     <li><span class="check">✓</span> Alle vakken & niveaus</li>
                     <li><span class="check">✓</span> Centraal Ouder Dashboard</li>
-                    <li><span class="check">✓</span> Alle Pro features</li>
+                    <li><span class="check">✓</span> Voordeliger samen</li>
                 </ul>
-                <a href="https://app-526684575961.us-west1.run.app" style="display: block; text-align: center; padding: 16px; border: 1px solid white; color: white; text-decoration: none; border-radius: 12px; margin-top: auto; font-weight: 700;">Start Gezinsplan</a>
+                <a href="https://app-526684575961.us-west1.run.app" class="card-btn">Start Gezinsplan</a>
             </div>
         </div>
     </section>
@@ -365,12 +398,12 @@
             <p class="section-subtitle" style="margin-bottom: 40px;">Alles wat je moet weten.</p>
             
             <div class="faq-item">
-                <div class="faq-question">Is de 7 dagen proefperiode echt gratis?</div>
-                <div class="faq-answer">Ja. Je hoeft geen betaalgegevens in te vullen om te starten. Na 7 dagen stopt de trial automatisch.</div>
+                <div class="faq-question">Wat als ik kies voor het 'Focus' pakket (1 vak)?</div>
+                <div class="faq-answer">Dan kies je bij het inloggen welk vak je wilt (bijvoorbeeld Wiskunde B). Je krijgt dan onbeperkt toegang tot dat specifieke vak. Wil je later wisselen of meer vakken? Dan kun je upgraden naar Totaal.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Voor welke niveaus is dit?</div>
-                <div class="faq-answer">GlowExamen ondersteunt de complete examenstof voor VWO, HAVO en VMBO-TL.</div>
+                <div class="faq-question">Is de 7 dagen proefperiode echt gratis?</div>
+                <div class="faq-answer">Ja. Je hoeft geen betaalgegevens in te vullen om te starten. Na 7 dagen stopt de trial automatisch.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">Kan ik per maand opzeggen?</div>
@@ -383,10 +416,10 @@
         <div style="margin-bottom: 24px; opacity: 0.8; display: flex; justify-content: center;">
              <svg width="150" height="30" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="glowTextGradFoot" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#d946ef" /><stop offset="50%" stopColor="#a855f7" /><stop offset="100%" stopColor="#8b5cf6" /></linearGradient>
+                    <linearGradient id="glowTextGradFoot" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#f0abfc" /><stop offset="50%" stopColor="#d8b4fe" /><stop offset="100%" stopColor="#c4b5fd" /></linearGradient>
                 </defs>
-                <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradFoot)" strokeWidth="5" strokeLinecap="round" />
-                <circle cx="45" cy="20" r="4" fill="#d946ef" />
+                <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradFoot)" strokeWidth="6" strokeLinecap="round" />
+                <circle cx="45" cy="20" r="5" fill="#f0abfc" />
                 <text x="60" y="55" fontFamily="'Space Grotesk', sans-serif" fontWeight="900" fontSize="48" fill="url(#glowTextGradFoot)" letterSpacing="-1">GLOW</text>
                 <text x="205" y="55" fontFamily="'Space Grotesk', sans-serif" fontWeight="700" fontSize="48" fill="#FFFFFF" letterSpacing="-1">EXAMEN</text>
             </svg>
