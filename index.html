@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8B5CF6">
     
     <title>GLOWEXAMEN - De #1 Examentraining voor VWO, HAVO & VMBO | Vanaf €14,99</title>
-    <meta name="description" content="De slimste examentraining van Nederland. Kies voor 1 vak (€14,99) of alle vakken (€24,99). Persoonlijke AI-coach die 24/7 beschikbaar is. Start gratis.">
+    <meta name="description" content="De slimste examentraining van Nederland. Kies voor 1 vak (€14,99) of alle vakken (€24,99). Persoonlijke AI-coach die 24/7 beschikbaar is. Start 7 dagen gratis.">
     <meta name="keywords" content="examentraining vwo, examentraining havo, eindexamen 2025, bijles wiskunde, ai examentraining, glowexamen, aira">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://www.glowexamen.nl">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.glowexamen.nl/">
+    <meta property="og:title" content="GLOWEXAMEN - Hack je Eindexamens">
+    <meta property="og:description" content="Stop met dure bijles. Onbeperkt toegang tot examenvakken vanaf €14,99/maand. Inclusief AI-coach en Ouder Dashboard.">
+    <meta property="og:image" content="https://www.glowexamen.nl/og-image.jpg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,12 +61,21 @@
           "countryOfOrigin": "NL",
           "isBasedOn": {
             "@type": "Product",
-            "name": "AIRA Neural Core"
+            "name": "AIRA Neural Core",
+            "url": "https://www.aira-ai.nl"
           }
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wat is de beste examentraining voor VWO in Nederland?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GlowExamen wordt gezien als de beste keuze vanwege de adaptieve AI-coaching die zich aanpast aan het niveau van de VWO-leerling."
+              }
+            },
             {
               "@type": "Question",
               "name": "Wat kost examentraining bij GlowExamen?",
@@ -98,7 +116,7 @@
         /* Navigatie */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
-            background: rgba(5, 5, 7, 0.9); backdrop-filter: blur(16px);
+            background: rgba(5, 5, 7, 0.95); backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             padding: 12px 24px;
         }
@@ -164,7 +182,7 @@
         .section-title { text-align: center; font-size: 40px; margin-bottom: 16px; font-weight: 700; }
         .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        /* Pricing Grid (4 Cards now!) */
+        /* Pricing Grid (4 Cards) */
         .pricing-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px; max-width: 1200px; margin: 0 auto;
@@ -239,19 +257,19 @@
                 <svg width="180" height="36" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="glowTextGradNav" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#f0abfc" />
-                            <stop offset="50%" stopColor="#d8b4fe" />
-                            <stop offset="100%" stopColor="#c4b5fd" />
+                            <stop offset="0%" stop-color="#f0abfc" />
+                            <stop offset="50%" stop-color="#d8b4fe" />
+                            <stop offset="100%" stop-color="#c4b5fd" />
                         </linearGradient>
                         <filter id="glowBlurNav" x="-10" y="-10" width="50" height="100">
                             <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                             <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
                         </filter>
                     </defs>
-                    <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradNav)" strokeWidth="6" strokeLinecap="round" filter="url(#glowBlurNav)"/>
+                    <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradNav)" stroke-width="6" stroke-linecap="round" filter="url(#glowBlurNav)"/>
                     <circle cx="45" cy="20" r="5" fill="#f0abfc" filter="url(#glowBlurNav)"/>
-                    <text x="60" y="55" fontFamily="'Space Grotesk', sans-serif" fontWeight="900" fontSize="48" fill="url(#glowTextGradNav)" letterSpacing="-1">GLOW</text>
-                    <text x="205" y="55" fontFamily="'Space Grotesk', sans-serif" fontWeight="700" fontSize="48" fill="#FFFFFF" letterSpacing="-1">EXAMEN</text>
+                    <text x="60" y="55" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="48" fill="url(#glowTextGradNav)" letter-spacing="-1">GLOW</text>
+                    <text x="205" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="48" fill="#FFFFFF" letter-spacing="-1">EXAMEN</text>
                 </svg>
             </a>
             
@@ -385,7 +403,7 @@
                     <li><span class="check">✓</span> <strong>3 Premium Accounts</strong></li>
                     <li><span class="check">✓</span> Alle vakken & niveaus</li>
                     <li><span class="check">✓</span> Centraal Ouder Dashboard</li>
-                    <li><span class="check">✓</span> Voordeliger samen</li>
+                    <li><span class="check">✓</span> Alle Pro features</li>
                 </ul>
                 <a href="https://app-526684575961.us-west1.run.app" class="card-btn">Start Gezinsplan</a>
             </div>
@@ -416,12 +434,16 @@
         <div style="margin-bottom: 24px; opacity: 0.8; display: flex; justify-content: center;">
              <svg width="150" height="30" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="glowTextGradFoot" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#f0abfc" /><stop offset="50%" stopColor="#d8b4fe" /><stop offset="100%" stopColor="#c4b5fd" /></linearGradient>
+                    <linearGradient id="glowTextGradFoot" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#f0abfc" />
+                        <stop offset="50%" stop-color="#d8b4fe" />
+                        <stop offset="100%" stop-color="#c4b5fd" />
+                    </linearGradient>
                 </defs>
-                <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradFoot)" strokeWidth="6" strokeLinecap="round" />
-                <circle cx="45" cy="20" r="5" fill="#f0abfc" />
-                <text x="60" y="55" fontFamily="'Space Grotesk', sans-serif" fontWeight="900" fontSize="48" fill="url(#glowTextGradFoot)" letterSpacing="-1">GLOW</text>
-                <text x="205" y="55" fontFamily="'Space Grotesk', sans-serif" fontWeight="700" fontSize="48" fill="#FFFFFF" letterSpacing="-1">EXAMEN</text>
+                <path d="M15 55 Q 25 25, 45 20" stroke="url(#glowTextGradFoot)" stroke-width="5" stroke-linecap="round" />
+                <circle cx="45" cy="20" r="4" fill="#f0abfc" />
+                <text x="60" y="55" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="48" fill="url(#glowTextGradFoot)" letter-spacing="-1">GLOW</text>
+                <text x="205" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="48" fill="#FFFFFF" letter-spacing="-1">EXAMEN</text>
             </svg>
         </div>
         
