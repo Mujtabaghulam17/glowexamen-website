@@ -34,10 +34,11 @@
           "description": "De #1 AI-examentraining van Nederland die zich aanpast aan jouw niveau en stress.",
           "offers": [
             { "@type": "Offer", "name": "Focus (1 Vak)", "price": "14.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
-            { "@type": "Offer", "name": "Totaal (Alle Vakken)", "price": "24.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+            { "@type": "Offer", "name": "Totaal (Alle Vakken)", "price": "24.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Gezin (3 Accounts)", "price": "64.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
           ],
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "250" },
-          "audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": ["VWO studenten", "HAVO studenten", "VMBO studenten"] },
+          "audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": ["VWO studenten", "HAVO studenten", "VMBO studenten", "Ouders"] },
           "inLanguage": "nl-NL",
           "countryOfOrigin": "NL",
           "isBasedOn": { "@type": "Product", "name": "AIRA Neural Core", "url": "https://www.aira-ai.nl" }
@@ -45,7 +46,7 @@
         {
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "Wat is de beste examentraining voor VWO in Nederland?", "acceptedAnswer": { "@type": "Answer", "text": "GlowExamen wordt gezien als de beste keuze vanwege de adaptieve AI-coaching." } },
+            { "@type": "Question", "name": "Wat is de beste examentraining voor VWO in Nederland?", "acceptedAnswer": { "@type": "Answer", "text": "GlowExamen wordt gezien als de beste keuze vanwege de adaptieve AI-coaching en stress-preventie." } },
             { "@type": "Question", "name": "Wat kost examentraining bij GlowExamen?", "acceptedAnswer": { "@type": "Answer", "text": "Je kunt kiezen voor 1 vak onbeperkt voor €14,99 per maand, of alle vakken onbeperkt voor €24,99 per maand." } }
           ]
         }
@@ -77,45 +78,25 @@
         h1, h2, h3, .btn-primary { font-family: 'Space Grotesk', sans-serif; }
 
         /* --- ANIMATIES --- */
-        
-        /* 1. Levende Achtergrond */
         @keyframes pulseGlow {
             0% { transform: translateX(-50%) scale(1); opacity: 0.4; }
             50% { transform: translateX(-50%) scale(1.2); opacity: 0.6; }
             100% { transform: translateX(-50%) scale(1); opacity: 0.4; }
         }
-
-        /* 2. Shiny Button Effect */
-        @keyframes shine {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        /* 3. Cursor voor Typemachine */
         .typing-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1em;
-            background-color: var(--primary);
-            margin-left: 5px;
-            animation: blink 1s infinite;
-            vertical-align: middle;
+            display: inline-block; width: 3px; height: 1em; background-color: var(--primary);
+            margin-left: 5px; animation: blink 1s infinite; vertical-align: middle;
         }
         @keyframes blink { 50% { opacity: 0; } }
 
         /* Navigatie */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
-            background: rgba(5, 5, 7, 0.9); backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 12px 24px;
+            background: rgba(5, 5, 7, 0.95); backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border); padding: 12px 24px;
             transition: all 0.3s ease;
         }
-        .nav-container {
-            max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
-        }
-        
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .nav-links { display: flex; gap: 24px; align-items: center; }
         .nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: 0.2s; font-weight: 500; position: relative; }
         .nav-link:hover { color: white; }
@@ -133,7 +114,6 @@
 
         /* Hero */
         .hero { padding: 180px 24px 100px; text-align: center; position: relative; overflow: hidden; }
-        
         .hero-bg-glow {
             position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
             width: 80vw; height: 80vh;
@@ -141,34 +121,26 @@
             filter: blur(90px); z-index: -1; pointer-events: none;
             animation: pulseGlow 8s ease-in-out infinite;
         }
-
         .hero h1 {
             font-size: clamp(36px, 7vw, 80px); line-height: 1.1; margin-bottom: 24px; font-weight: 800; letter-spacing: -0.02em; min-height: 1.1em;
         }
-        
         .hero-price {
             font-size: 28px; font-weight: 700; color: white; margin-bottom: 16px; display: block;
             font-family: 'Space Grotesk', sans-serif;
         }
         .hero-price span { color: var(--text-muted); font-size: 18px; font-weight: 400;}
         .hero-price .highlight { color: var(--primary); text-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
-
-        .hero p {
-            font-size: 20px; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px;
-        }
+        .hero p { font-size: 20px; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; }
         
-        /* Shiny Button Style */
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white; padding: 18px 48px; border-radius: 12px; font-size: 18px; font-weight: 700;
             text-decoration: none; display: inline-block; transition: 0.3s;
-            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3);
-            position: relative; overflow: hidden;
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3); position: relative; overflow: hidden;
         }
         .btn-primary::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: 0.5s;
         }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(139, 92, 246, 0.6); }
         .btn-primary:hover::before { left: 100%; }
@@ -194,34 +166,24 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px; max-width: 1200px; margin: 0 auto;
         }
-
         .plan-card {
             background: var(--card-bg); border: 1px solid var(--border);
             border-radius: 24px; padding: 32px; position: relative; display: flex; flex-direction: column;
             transition: all 0.3s ease;
         }
-        .plan-card:hover { 
-            border-color: rgba(139, 92, 246, 0.5); 
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-        }
+        .plan-card:hover { border-color: rgba(139, 92, 246, 0.5); transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); }
         
         .plan-card.featured {
             border-color: var(--primary);
             background: linear-gradient(180deg, rgba(139, 92, 246, 0.08), var(--card-bg));
-            transform: scale(1.02); z-index: 10;
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+            transform: scale(1.02); z-index: 10; box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
         }
-        .plan-card.featured:hover {
-            transform: scale(1.02) translateY(-10px);
-            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.25);
-        }
+        .plan-card.featured:hover { transform: scale(1.02) translateY(-10px); box-shadow: 0 30px 60px rgba(139, 92, 246, 0.25); }
         
         .tag {
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
             background: var(--primary); color: white; font-size: 12px; font-weight: 700;
-            padding: 4px 12px; border-radius: 100px; white-space: nowrap;
-            box-shadow: 0 0 10px var(--primary);
+            padding: 4px 12px; border-radius: 100px; white-space: nowrap; box-shadow: 0 0 10px var(--primary);
         }
 
         .price { font-size: 40px; font-weight: 700; color: white; margin: 16px 0; font-family: 'Space Grotesk', sans-serif;}
@@ -238,24 +200,13 @@
             transition: 0.2s;
         }
         .card-btn:hover { background: white; color: black; }
-        
-        .card-btn-primary {
-            background: var(--primary); border: 1px solid var(--primary); color: white;
-            position: relative; overflow: hidden;
-        }
+        .card-btn-primary { background: var(--primary); border: 1px solid var(--primary); color: white; }
         .card-btn-primary:hover { background: #7c3aed; border-color: #7c3aed; color: white; box-shadow: 0 0 20px rgba(139,92,246,0.4); }
-        .card-btn-primary::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
-        }
-        .card-btn-primary:hover::before { left: 100%; }
 
         /* FAQ */
         .faq-item {
             background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            border-radius: 16px; padding: 24px; margin-bottom: 16px;
-            transition: 0.3s;
+            border-radius: 16px; padding: 24px; margin-bottom: 16px; transition: 0.3s;
         }
         .faq-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
         .faq-question { font-weight: 700; font-size: 18px; margin-bottom: 8px; color: white; font-family: 'Space Grotesk', sans-serif; }
@@ -371,6 +322,43 @@
                     <div style="font-size: 32px; margin-bottom: 16px;">👨‍👩‍👧‍👦</div>
                     <h3>Ouder Dashboard</h3>
                     <p style="color: var(--text-muted); margin-top: 8px;">Ouders zien precies de voortgang. Geen discussies meer aan de keukentafel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parents" class="section" style="background: #050507; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span data-aos="fade-up" style="color: #10B981; font-weight: 700; letter-spacing: 1px; font-size: 14px; text-transform: uppercase; display: block; margin-bottom: 16px;">Speciaal voor ouders</span>
+                <h2 data-aos="fade-up" data-aos-delay="100" class="section-title">Technologie die rust brengt aan de keukentafel.</h2>
+                <p data-aos="fade-up" data-aos-delay="200" class="section-subtitle">Wij snappen dat u het beste wilt voor uw kind. GlowExamen biedt zekerheid.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <div data-aos="fade-up" data-aos-delay="100" style="background: linear-gradient(145deg, #0E1016, #050507); padding: 32px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.2); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #10B981;"></div>
+                    <div style="font-size: 40px; margin-bottom: 20px;">🛡️</div>
+                    <h3 style="color: white; margin-bottom: 12px; font-family: 'Space Grotesk', sans-serif;">100% Veilig & Geverifieerd</h3>
+                    <p style="color: var(--text-muted); font-size: 15px;">
+                        In tegenstelling tot ChatGPT, verzint onze AI geen feiten. GlowExamen is strikt begrensd tot de officiële Nederlandse examenstof.
+                    </p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200" style="background: linear-gradient(145deg, #0E1016, #050507); padding: 32px; border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.2); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3B82F6;"></div>
+                    <div style="font-size: 40px; margin-bottom: 20px;">👁️</div>
+                    <h3 style="color: white; margin-bottom: 12px; font-family: 'Space Grotesk', sans-serif;">Transparant Inzicht</h3>
+                    <p style="color: var(--text-muted); font-size: 15px;">
+                        Geen discussies meer. Via het Ouder Dashboard ziet u real-time de voortgang, sterke punten en de inzet.
+                    </p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300" style="background: linear-gradient(145deg, #0E1016, #050507); padding: 32px; border-radius: 20px; border: 1px solid rgba(139, 92, 246, 0.2); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #8B5CF6;"></div>
+                    <div style="font-size: 40px; margin-bottom: 20px;">📉</div>
+                    <h3 style="color: white; margin-bottom: 12px; font-family: 'Space Grotesk', sans-serif;">Geen Bijles Tarieven</h3>
+                    <p style="color: var(--text-muted); font-size: 15px;">
+                        Bijles kost al snel €60 per uur. Voor €24,99 heeft uw kind een hele maand 24/7 toegang tot alle vakken.
+                    </p>
                 </div>
             </div>
         </div>
@@ -503,13 +491,9 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         // 1. Initialize Scroll Animations
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+        AOS.init({ duration: 800, once: true, offset: 80 });
 
-        // 2. Typewriter Effect voor H1
+        // 2. Typewriter Effect
         const h1Text = "De beste examentraining voor ";
         const coloredText = "VWO, HAVO & VMBO.";
         const target = document.getElementById('typewriter-target');
@@ -521,15 +505,10 @@
                 i++;
                 setTimeout(typeWriter, 40);
             } else {
-                // Als gewone tekst klaar is, voeg gekleurde tekst in één keer toe met fade-in effect
                 target.innerHTML = h1Text + '<span style="color: var(--primary); opacity: 0; transition: opacity 1s;" id="fade-text">' + coloredText + '</span>';
-                setTimeout(() => {
-                    document.getElementById('fade-text').style.opacity = 1;
-                }, 100);
+                setTimeout(() => { document.getElementById('fade-text').style.opacity = 1; }, 100);
             }
         }
-        
-        // Start typen na korte vertraging
         setTimeout(typeWriter, 500);
     </script>
 
