@@ -1031,10 +1031,66 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* CURSOR GLOW */
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s;
+            mix-blend-mode: screen;
+        }
+
+        .cursor-glow.visible {
+            opacity: 1;
+        }
+
+        /* TILT EFFECT ON CARDS */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        .tilt-card:hover {
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+        }
+
+        /* TYPING CURSOR */
+        .typing-cursor {
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background: var(--cyan);
+            margin-left: 4px;
+            animation: cursorBlink 1s infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes cursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* COUNTER ANIMATION NUMBER */
+        .counter-value {
+            display: inline-block;
+            font-variant-numeric: tabular-nums;
+        }
+
+        @media (max-width: 768px) {
+            .cursor-glow { display: none; }
+        }
     </style>
 </head>
 <body>
-    <div class="bg-mesh"></div>
+    <div class="bg-mesh" id="bgMesh"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
 
     <nav>
         <div class="nav-inner">
@@ -1053,12 +1109,12 @@
     <section class="hero">
         <div class="hero-badge">
             <div class="dot"></div>
-            De toekomst wacht niet
+            Examentraining 2025
         </div>
 
         <h1>
-            Slagen begint<br>
-            <span class="gradient">hier.</span>
+            <span id="typing-text"></span><span class="typing-cursor" id="typing-cursor"></span><br>
+            <span class="gradient" id="typing-gradient"></span>
         </h1>
 
         <p class="hero-sub">
@@ -1074,7 +1130,7 @@
         </div>
 
         <div class="hero-price">
-            <div class="price-amount">€14,99</div>
+            <div class="price-amount">€<span class="counter-value" data-target="14.99">0</span></div>
             <div class="price-info">
                 <div class="label">Vanaf per maand</div>
                 <div class="desc">7 dagen gratis • Geen creditcard</div>
@@ -1116,34 +1172,34 @@
             </div>
 
             <div class="bento-grid">
-                <div class="bento-item span-8 reveal">
+                <div class="bento-item span-8 reveal tilt-card">
                     <div class="bento-glow cyan"></div>
                     <div class="bento-icon cyan">🧠</div>
                     <h3>Gebouwd op echte examens</h3>
                     <p>Geen random antwoorden. Onze AI is gebaseerd op 10 jaar officiële eindexamens van het College voor Toetsen en Examens. Altijd accuraat, nooit verzonnen.</p>
                 </div>
-                <div class="bento-item span-4 reveal reveal-delay-1">
+                <div class="bento-item span-4 reveal reveal-delay-1 tilt-card">
                     <div class="bento-icon purple">🎯</div>
                     <h3>Past zich aan</h3>
                     <p>Begrijp je iets niet? De coach legt het anders uit. Op jouw niveau.</p>
                 </div>
-                <div class="bento-item span-4 reveal">
+                <div class="bento-item span-4 reveal tilt-card">
                     <div class="bento-icon pink">😌</div>
                     <h3>Zen Mode</h3>
                     <p>Stress gedetecteerd? Automatisch rustige begeleiding.</p>
                 </div>
-                <div class="bento-item span-8 reveal reveal-delay-1">
+                <div class="bento-item span-8 reveal reveal-delay-1 tilt-card">
                     <div class="bento-glow purple"></div>
                     <div class="bento-icon orange">📊</div>
                     <h3>Weet waar je staat</h3>
                     <p>Duidelijk overzicht van je voortgang. Zie precies welke onderwerpen je snapt en waar je nog moet oefenen. Geen verrassingen op examendag.</p>
                 </div>
-                <div class="bento-item span-6 reveal">
+                <div class="bento-item span-6 reveal tilt-card">
                     <div class="bento-icon cyan">🌙</div>
                     <h3>24/7 beschikbaar</h3>
                     <p>Om 3 uur 's nachts nog een vraag? Je coach is er. Altijd. Geen wachttijden.</p>
                 </div>
-                <div class="bento-item span-6 reveal reveal-delay-1">
+                <div class="bento-item span-6 reveal reveal-delay-1 tilt-card">
                     <div class="bento-icon purple">🔒</div>
                     <h3>Privacy first</h3>
                     <p>Data blijft in Europa. AVG-compliant. Voorbereid op de EU AI Act.</p>
@@ -1228,7 +1284,7 @@
             </div>
 
             <div class="pricing-grid">
-                <div class="plan reveal">
+                <div class="plan reveal tilt-card">
                     <div class="plan-name">Starter</div>
                     <div class="plan-price">€0 <span>/mnd</span></div>
                     <div class="plan-desc">Probeer het uit</div>
@@ -1241,7 +1297,7 @@
                     <a href="https://app.glowexamen.nl" class="plan-btn">Start gratis</a>
                 </div>
 
-                <div class="plan reveal reveal-delay-1">
+                <div class="plan reveal reveal-delay-1 tilt-card">
                     <div class="plan-name">Focus</div>
                     <div class="plan-price">€14,99 <span>/mnd</span></div>
                     <div class="plan-desc">Je struikelvak</div>
@@ -1254,7 +1310,7 @@
                     <a href="https://app.glowexamen.nl" class="plan-btn">Kies 1 vak</a>
                 </div>
 
-                <div class="plan featured reveal reveal-delay-2">
+                <div class="plan featured reveal reveal-delay-2 tilt-card">
                     <div class="plan-badge">Populair</div>
                     <div class="plan-name">Totaal</div>
                     <div class="plan-price">€24,99 <span>/mnd</span></div>
@@ -1268,7 +1324,7 @@
                     <a href="https://app.glowexamen.nl" class="plan-btn">Start 7 dagen gratis</a>
                 </div>
 
-                <div class="plan reveal reveal-delay-3">
+                <div class="plan reveal reveal-delay-3 tilt-card">
                     <div class="plan-name">Gezin</div>
                     <div class="plan-price">€64,99 <span>/mnd</span></div>
                     <div class="plan-desc">Tot 3 kinderen</div>
@@ -1369,18 +1425,170 @@
     </footer>
 
     <script>
-        // Scroll reveal animations
-        const observer = new IntersectionObserver((entries) => {
+        // ============================================
+        // 1. CURSOR GLOW EFFECT
+        // ============================================
+        const cursorGlow = document.getElementById('cursorGlow');
+        let cursorX = 0, cursorY = 0;
+        let glowX = 0, glowY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+            cursorGlow.classList.add('visible');
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorGlow.classList.remove('visible');
+        });
+
+        // Smooth cursor follow
+        function animateCursor() {
+            glowX += (cursorX - glowX) * 0.1;
+            glowY += (cursorY - glowY) * 0.1;
+            cursorGlow.style.left = glowX + 'px';
+            cursorGlow.style.top = glowY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // ============================================
+        // 2. PARALLAX MESH GRADIENT
+        // ============================================
+        const bgMesh = document.getElementById('bgMesh');
+        
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 30;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * 30;
+            bgMesh.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        // ============================================
+        // 3. TYPING EFFECT
+        // ============================================
+        const typingText = document.getElementById('typing-text');
+        const typingGradient = document.getElementById('typing-gradient');
+        const typingCursor = document.getElementById('typing-cursor');
+        
+        const line1 = "Slagen begint";
+        const line2 = "hier.";
+        let i = 0;
+        let phase = 1;
+
+        function typeWriter() {
+            if (phase === 1) {
+                if (i < line1.length) {
+                    typingText.textContent += line1.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 60);
+                } else {
+                    phase = 2;
+                    i = 0;
+                    setTimeout(typeWriter, 300);
+                }
+            } else if (phase === 2) {
+                if (i < line2.length) {
+                    typingGradient.textContent += line2.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 80);
+                } else {
+                    // Hide cursor after typing complete
+                    setTimeout(() => {
+                        typingCursor.style.display = 'none';
+                    }, 1500);
+                }
+            }
+        }
+
+        // Start typing after page load
+        setTimeout(typeWriter, 800);
+
+        // ============================================
+        // 4. COUNTER ANIMATION
+        // ============================================
+        function animateCounter(el) {
+            const target = parseFloat(el.dataset.target);
+            const duration = 2000;
+            const start = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = (target * easeOut).toFixed(2);
+                
+                el.textContent = current.replace('.', ',');
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // Trigger counter when price is visible
+        const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-value').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // ============================================
+        // 5. SCROLL REVEAL WITH STAGGER
+        // ============================================
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add stagger delay based on element position
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay * 100);
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach((el, index) => {
+            el.dataset.delay = index % 4; // Stagger every 4 elements
+            revealObserver.observe(el);
+        });
 
-        // Smooth scroll for anchor links
+        // ============================================
+        // 6. 3D TILT EFFECT ON CARDS
+        // ============================================
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // ============================================
+        // 7. SMOOTH SCROLL
+        // ============================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1391,21 +1599,18 @@
             });
         });
 
-        // Navbar scroll effect
-        let lastScroll = 0;
+        // ============================================
+        // 8. NAVBAR SCROLL EFFECT
+        // ============================================
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                nav.style.background = 'rgba(15, 15, 26, 0.9)';
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(15, 15, 26, 0.95)';
                 nav.style.borderColor = 'rgba(255, 255, 255, 0.08)';
             } else {
                 nav.style.background = 'rgba(255, 255, 255, 0.08)';
                 nav.style.borderColor = 'rgba(255, 255, 255, 0.1)';
             }
-            
-            lastScroll = currentScroll;
         });
     </script>
 </body>
