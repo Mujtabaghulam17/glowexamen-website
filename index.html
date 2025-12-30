@@ -1032,6 +1032,213 @@
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
 
+        /* SCROLL PROGRESS BAR */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* CONFETTI */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 99999;
+            pointer-events: none;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* CHAT DEMO */
+        .chat-demo {
+            position: relative;
+            max-width: 420px;
+            margin: 60px auto 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .chat-demo::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), transparent 50%, rgba(168, 85, 247, 0.2));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .chat-demo-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .chat-demo-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .chat-demo-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .chat-demo-info span {
+            font-size: 12px;
+            color: var(--cyan);
+        }
+
+        .chat-demo-status {
+            margin-left: auto;
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--cyan);
+        }
+
+        .chat-demo-messages {
+            padding: 20px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .chat-message-user,
+        .chat-message-ai {
+            max-width: 85%;
+            padding: 14px 18px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: messageIn 0.4s forwards;
+        }
+
+        .chat-message-user {
+            background: rgba(255,255,255,0.1);
+            align-self: flex-end;
+            border-bottom-right-radius: 6px;
+        }
+
+        .chat-message-ai {
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            align-self: flex-start;
+            border-bottom-left-radius: 6px;
+        }
+
+        @keyframes messageIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-typing {
+            display: flex;
+            gap: 4px;
+            padding: 14px 18px;
+            align-self: flex-start;
+        }
+
+        .chat-typing span {
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            animation: typingDot 1.4s infinite;
+        }
+
+        .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingDot {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+
+        .chat-demo-input {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .chat-demo-input input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 14px;
+            outline: none;
+        }
+
+        .chat-demo-input input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .chat-demo-send {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .chat-demo-send:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+        }
+
+        .chat-demo-send svg {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+        }
+
+        .chat-demo-label {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .chat-demo { margin: 40px 16px 0; }
+        }
+
         /* CURSOR GLOW */
         .cursor-glow {
             position: fixed;
@@ -1089,6 +1296,7 @@
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
     <div class="bg-mesh" id="bgMesh"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -1136,6 +1344,28 @@
                 <div class="desc">7 dagen gratis • Geen creditcard</div>
             </div>
         </div>
+
+        <!-- INTERACTIVE CHAT DEMO -->
+        <div class="chat-demo" id="chatDemo">
+            <div class="chat-demo-header">
+                <div class="chat-demo-avatar">🎓</div>
+                <div class="chat-demo-info">
+                    <h4>Glow Coach</h4>
+                    <span>● Online</span>
+                </div>
+                <div class="chat-demo-status"></div>
+            </div>
+            <div class="chat-demo-messages" id="chatMessages">
+                <!-- Messages will be inserted here -->
+            </div>
+            <div class="chat-demo-input">
+                <input type="text" placeholder="Probeer: 'Leg integralen uit'" id="chatInput" readonly>
+                <button class="chat-demo-send" id="chatSend">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
+            </div>
+        </div>
+        <p class="chat-demo-label">✨ Live preview — Probeer het zelf in de app</p>
     </section>
 
     <div class="marquee-section">
@@ -1425,6 +1655,150 @@
     </footer>
 
     <script>
+        // ============================================
+        // 0. SCROLL PROGRESS BAR
+        // ============================================
+        const scrollProgress = document.getElementById('scrollProgress');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+
+        // ============================================
+        // 0.5 KONAMI CODE EASTER EGG
+        // ============================================
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    triggerConfetti();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function triggerConfetti() {
+            const colors = ['#22d3ee', '#a78bfa', '#ec4899', '#fb923c', '#22c55e', '#ffffff'];
+            const confettiCount = 150;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s linear forwards`;
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 5500);
+            }
+
+            // Show secret message
+            const msg = document.createElement('div');
+            msg.innerHTML = '🎉 Je hebt de geheime code gevonden! 🎮';
+            msg.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0,0,0,0.9);
+                color: white;
+                padding: 24px 48px;
+                border-radius: 16px;
+                font-size: 20px;
+                font-weight: 600;
+                z-index: 999999;
+                border: 1px solid rgba(255,255,255,0.2);
+                animation: messageIn 0.4s forwards;
+            `;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        }
+
+        // ============================================
+        // 0.6 SCRIPTED CHAT DEMO
+        // ============================================
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+
+        const chatScript = [
+            { type: 'user', text: 'Kun je integralen uitleggen?', delay: 1500 },
+            { type: 'typing', delay: 800 },
+            { type: 'ai', text: 'Natuurlijk! Een integraal is eigenlijk het omgekeerde van differentiëren. Stel je voor dat je de oppervlakte onder een grafiek wilt berekenen... 📐', delay: 2500 },
+            { type: 'typing', delay: 600 },
+            { type: 'ai', text: 'Zal ik beginnen met een simpel voorbeeld? Bijvoorbeeld ∫x² dx?', delay: 1800 }
+        ];
+
+        let chatIndex = 0;
+        let chatStarted = false;
+
+        function startChatDemo() {
+            if (chatStarted) return;
+            chatStarted = true;
+            chatInput.value = '';
+            playNextChatMessage();
+        }
+
+        function playNextChatMessage() {
+            if (chatIndex >= chatScript.length) return;
+
+            const msg = chatScript[chatIndex];
+            
+            setTimeout(() => {
+                // Remove any existing typing indicator
+                const existingTyping = chatMessages.querySelector('.chat-typing');
+                if (existingTyping) existingTyping.remove();
+
+                if (msg.type === 'typing') {
+                    const typing = document.createElement('div');
+                    typing.className = 'chat-typing';
+                    typing.innerHTML = '<span></span><span></span><span></span>';
+                    chatMessages.appendChild(typing);
+                } else {
+                    const bubble = document.createElement('div');
+                    bubble.className = msg.type === 'user' ? 'chat-message-user' : 'chat-message-ai';
+                    bubble.textContent = msg.text;
+                    chatMessages.appendChild(bubble);
+                }
+
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                chatIndex++;
+                playNextChatMessage();
+            }, msg.delay);
+        }
+
+        // Start chat demo when it comes into view
+        const chatObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(startChatDemo, 500);
+                    chatObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        chatObserver.observe(document.getElementById('chatDemo'));
+
+        // Also trigger on click
+        chatSend.addEventListener('click', () => {
+            if (!chatStarted) {
+                chatInput.value = 'Kun je integralen uitleggen?';
+                setTimeout(startChatDemo, 300);
+            }
+        });
+
         // ============================================
         // 1. CURSOR GLOW EFFECT
         // ============================================
