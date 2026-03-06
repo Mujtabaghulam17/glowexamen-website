@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f0f1a">
+    <title>GLOWEXAMEN - De #1 Examentraining voor VWO, HAVO & VMBO</title>
+    <meta name="description" content="De slimste examentraining van Nederland. Met de ExamPredictor voorspellen wij welke onderwerpen op jouw eindexamen komen. AI-coach 24/7 beschikbaar. Start 7 dagen gratis.">
+    <link rel="canonical" href="https://www.glowexamen.nl">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #0f0f1a;
+            --glass: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-hover: rgba(255, 255, 255, 0.12);
+            --text: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --cyan: #22d3ee;
+            --purple: #a78bfa;
+            --pink: #ec4899;
+            --orange: #fb923c;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ANIMATED MESH BACKGROUND */
+        .bg-mesh {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        .bg-mesh::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(34, 211, 238, 0.3) 0%, transparent 45%),
+                radial-gradient(circle at 85% 70%, rgba(168, 85, 247, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(251, 146, 60, 0.2) 0%, transparent 35%);
+            animation: meshMove 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes meshMove {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-3%, 3%) scale(1.02); }
+            100% { transform: translate(3%, -3%) scale(1); }
+        }
+
+        .bg-mesh::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+        }
+
+        /* GLASS CARD MIXIN */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            padding: 10px 14px;
+            transition: all 0.3s;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            transition: all 0.2s;
+        }
+
+        .logo:hover { background: rgba(255, 255, 255, 0.15); }
+
+        .nav-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 100px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-cta {
+            background: #fff;
+            color: var(--bg);
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.2);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 24px 100px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--cyan);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+
+        h1 {
+            font-size: clamp(52px, 10vw, 110px);
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            margin-bottom: 28px;
+        }
+
+        h1 .gradient {
+            background: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-sub {
+            font-size: 19px;
+            color: var(--text-dim);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 44px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 56px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: var(--bg);
+            padding: 18px 36px;
+            border-radius: 100px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.15);
+        }
+
+        .btn-primary svg { transition: transform 0.2s; }
+        .btn-primary:hover svg { transform: translateX(4px); }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #fff;
+            padding: 18px 36px;
+            border-radius: 100px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .hero-price {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 28px 40px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .price-amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price-info {
+            text-align: left;
+            padding-left: 28px;
+            border-left: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .price-info .label {
+            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+
+        .price-info .desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 3px;
+        }
+
+        /* MARQUEE */
+        .marquee-section {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 24px 0;
+            overflow: hidden;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .marquee {
+            display: flex;
+            gap: 48px;
+            animation: marquee 35s linear infinite;
+            width: max-content;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.5);
+            white-space: nowrap;
+        }
+
+        .marquee-item span {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 140px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--cyan);
+            margin-bottom: 20px;
+        }
+
+        .section-tag::before,
+        .section-tag::after {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--cyan);
+            opacity: 0.5;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-dim);
+            max-width: 500px;
+            margin: 20px auto 0;
+            line-height: 1.7;
+        }
+
+        /* BENTO FEATURES */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .bento-item {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-8px);
+            background: var(--glass-hover);
+            border-color: rgba(255,255,255,0.18);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .bento-item.span-8 { grid-column: span 8; }
+        .bento-item.span-6 { grid-column: span 6; }
+        .bento-item.span-4 { grid-column: span 4; }
+
+        .bento-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 28px;
+        }
+
+        .bento-icon.cyan { background: rgba(34, 211, 238, 0.12); }
+        .bento-icon.purple { background: rgba(168, 85, 247, 0.12); }
+        .bento-icon.pink { background: rgba(236, 72, 153, 0.12); }
+        .bento-icon.orange { background: rgba(251, 146, 60, 0.12); }
+
+        .bento-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .bento-item p {
+            font-size: 15px;
+            color: var(--text-dim);
+            line-height: 1.7;
+            max-width: 400px;
+        }
+
+        .bento-glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .bento-glow.cyan { background: var(--cyan); top: -50px; right: -50px; }
+        .bento-glow.purple { background: var(--purple); bottom: -50px; left: -50px; }
+
+        /* PARENTS SECTION */
+        .parents-section {
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .parents-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .dashboard-preview {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 32px;
+            position: relative;
+        }
+
+        .dashboard-preview::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 29px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.4), transparent 50%, rgba(168, 85, 247, 0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .dash-user {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .dash-avatar {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            border-radius: 16px;
+        }
+
+        .dash-user-info h4 {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .dash-user-info span {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .dash-status {
+            background: rgba(34, 211, 238, 0.12);
+            color: var(--cyan);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .dash-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .dash-metric {
+            background: rgba(255,255,255,0.04);
+            border-radius: 18px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dash-metric-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dash-metric-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        .dash-progress {
+            background: rgba(255,255,255,0.04);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .dash-progress-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            font-size: 14px;
+        }
+
+        .dash-progress-head span:last-child {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 73%;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .parents-content h3 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        .parents-content > p {
+            font-size: 17px;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .feature-check {
+            width: 32px;
+            height: 32px;
+            background: rgba(34, 211, 238, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-check svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--cyan);
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .plan {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 40px 28px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .plan:hover {
+            transform: translateY(-8px);
+            background: var(--glass-hover);
+            border-color: rgba(255,255,255,0.18);
+        }
+
+        .plan.featured {
+            background: linear-gradient(180deg, rgba(34, 211, 238, 0.1), var(--glass));
+            border-color: rgba(34, 211, 238, 0.3);
+        }
+
+        .plan.featured:hover {
+            border-color: rgba(34, 211, 238, 0.5);
+            box-shadow: 0 30px 60px rgba(34, 211, 238, 0.15);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            color: var(--bg);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .plan-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .plan.featured .plan-price {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .plan-price span {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dim);
+            -webkit-text-fill-color: var(--text-dim);
+        }
+
+        .plan-desc {
+            font-size: 14px;
+            color: var(--text-dim);
+            margin-bottom: 32px;
+        }
+
+        .plan-features {
+            list-style: none;
+            flex-grow: 1;
+            margin-bottom: 32px;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            color: var(--text-dim);
+        }
+
+        .plan-features li.on { color: var(--text); }
+
+        .plan-features svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .plan-features .check { stroke: var(--cyan); }
+        .plan-features .x { stroke: rgba(255,255,255,0.2); }
+
+        .plan-btn {
+            display: block;
+            text-align: center;
+            padding: 18px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text);
+        }
+
+        .plan-btn:hover {
+            background: #fff;
+            color: var(--bg);
+            border-color: #fff;
+        }
+
+        .plan.featured .plan-btn {
+            background: #fff;
+            border-color: #fff;
+            color: var(--bg);
+        }
+
+        .plan.featured .plan-btn:hover {
+            box-shadow: 0 15px 40px rgba(255,255,255,0.2);
+            transform: scale(1.03);
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            background: var(--glass-hover);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .faq-q {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .faq-a {
+            font-size: 15px;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            text-align: center;
+            padding: 120px 24px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(168, 85, 247, 0.15));
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 36px;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 37px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.5), transparent 50%, rgba(168, 85, 247, 0.4));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-box p {
+            font-size: 18px;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 100px 0 50px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 15px;
+            color: var(--text-dim);
+            max-width: 280px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 24px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 15px;
+            color: var(--text);
+            text-decoration: none;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-dim);
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 100px;
+        }
+
+        .footer-copy {
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+
+        .footer-copy a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .bento-item.span-8, .bento-item.span-6, .bento-item.span-4 { grid-column: span 6; }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .parents-grid { grid-template-columns: 1fr; gap: 48px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { left: 16px; right: 16px; transform: none; padding: 8px 12px; }
+            .nav-link { display: none; }
+            .mobile-menu-btn { display: block; }
+            .bento-item.span-8, .bento-item.span-6, .bento-item.span-4 { grid-column: span 12; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .hero-cta-group { flex-direction: column; width: 100%; max-width: 320px; }
+            .hero-cta-group .btn-primary, .hero-cta-group .btn-secondary { width: 100%; justify-content: center; }
+            .hero-price { flex-direction: column; text-align: center; gap: 16px; padding: 24px; }
+            .price-info { border-left: none; padding-left: 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+            .footer-top { flex-direction: column; gap: 48px; }
+            .footer-links { gap: 48px; }
+            .footer-bottom { flex-direction: column; gap: 24px; text-align: center; }
+            .footer-badges { flex-wrap: wrap; justify-content: center; }
+            .cta-box { padding: 48px 24px; }
+        }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* SCROLL PROGRESS BAR */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* CONFETTI */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 99999;
+            pointer-events: none;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* CHAT DEMO */
+        .chat-demo {
+            position: relative;
+            max-width: 420px;
+            margin: 60px auto 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .chat-demo::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), transparent 50%, rgba(168, 85, 247, 0.2));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .chat-demo-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .chat-demo-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .chat-demo-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .chat-demo-info span {
+            font-size: 12px;
+            color: var(--cyan);
+        }
+
+        .chat-demo-status {
+            margin-left: auto;
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--cyan);
+        }
+
+        .chat-demo-messages {
+            padding: 20px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .chat-message-user,
+        .chat-message-ai {
+            max-width: 85%;
+            padding: 14px 18px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: messageIn 0.4s forwards;
+        }
+
+        .chat-message-user {
+            background: rgba(255,255,255,0.1);
+            align-self: flex-end;
+            border-bottom-right-radius: 6px;
+        }
+
+        .chat-message-ai {
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            align-self: flex-start;
+            border-bottom-left-radius: 6px;
+        }
+
+        @keyframes messageIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-typing {
+            display: flex;
+            gap: 4px;
+            padding: 14px 18px;
+            align-self: flex-start;
+        }
+
+        .chat-typing span {
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            animation: typingDot 1.4s infinite;
+        }
+
+        .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingDot {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+
+        .chat-demo-input {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .chat-demo-input input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 14px;
+            outline: none;
+        }
+
+        .chat-demo-input input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .chat-demo-send {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .chat-demo-send:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+        }
+
+        .chat-demo-send svg {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+        }
+
+        .chat-demo-label {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .chat-demo { margin: 40px 16px 0; }
+        }
+
+        /* CURSOR GLOW */
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s;
+            mix-blend-mode: screen;
+        }
+
+        .cursor-glow.visible {
+            opacity: 1;
+        }
+
+        /* TILT EFFECT ON CARDS */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        .tilt-card:hover {
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+        }
+
+        /* TYPING CURSOR */
+        .typing-cursor {
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background: var(--cyan);
+            margin-left: 4px;
+            animation: cursorBlink 1s infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes cursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* COUNTER ANIMATION NUMBER */
+        .counter-value {
+            display: inline-block;
+            font-variant-numeric: tabular-nums;
+        }
+
+        @media (max-width: 768px) {
+            .cursor-glow { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="bg-mesh" id="bgMesh"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="logo">GlowExamen</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#ouders" class="nav-link">Ouders</a>
+            <a href="#pricing" class="nav-link">Prijzen</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="https://app.glowexamen.nl" class="nav-cta">Start gratis →</a>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">
+            <div class="dot"></div>
+            De toekomst begint hier
+        </div>
+
+        <h1>
+            <span id="typing-text"></span><span class="typing-cursor" id="typing-cursor"></span><br>
+            <span class="gradient" id="typing-gradient"></span>
+        </h1>
+
+        <p class="hero-sub">
+            Je persoonlijke examencoach die 24/7 klaarstaat. Met de ExamPredictor weet je precies wat er op je examen komt. Van VWO tot VMBO.
+        </p>
+
+        <div class="hero-cta-group">
+            <a href="https://app.glowexamen.nl" class="btn-primary">
+                Start 7 dagen gratis
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#pricing" class="btn-secondary">Bekijk prijzen</a>
+        </div>
+
+        <div class="hero-price">
+            <div class="price-amount">€<span class="counter-value" data-target="14.99">0</span></div>
+            <div class="price-info">
+                <div class="label">Vanaf per maand</div>
+                <div class="desc">7 dagen gratis • Geen creditcard</div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE CHAT DEMO -->
+        <div class="chat-demo" id="chatDemo">
+            <div class="chat-demo-header">
+                <div class="chat-demo-avatar">🎓</div>
+                <div class="chat-demo-info">
+                    <h4>Glow Coach</h4>
+                    <span>● Online</span>
+                </div>
+                <div class="chat-demo-status"></div>
+            </div>
+            <div class="chat-demo-messages" id="chatMessages">
+                <!-- Messages will be inserted here -->
+            </div>
+            <div class="chat-demo-input">
+                <input type="text" placeholder="Probeer: 'Leg integralen uit'" id="chatInput" readonly>
+                <button class="chat-demo-send" id="chatSend">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
+            </div>
+        </div>
+        <p class="chat-demo-label">✨ Live preview — Probeer het zelf in de app</p>
+    </section>
+
+    <div class="marquee-section">
+        <div class="marquee">
+            <div class="marquee-item"><span>📐</span> Wiskunde</div>
+            <div class="marquee-item"><span>🔬</span> Scheikunde</div>
+            <div class="marquee-item"><span>🌍</span> Aardrijkskunde</div>
+            <div class="marquee-item"><span>📖</span> Nederlands</div>
+            <div class="marquee-item"><span>🇬🇧</span> Engels</div>
+            <div class="marquee-item"><span>💶</span> Economie</div>
+            <div class="marquee-item"><span>⚛️</span> Natuurkunde</div>
+            <div class="marquee-item"><span>🏛️</span> Geschiedenis</div>
+            <div class="marquee-item"><span>🧬</span> Biologie</div>
+            <div class="marquee-item"><span>🇩🇪</span> Duits</div>
+            <div class="marquee-item"><span>📐</span> Wiskunde</div>
+            <div class="marquee-item"><span>🔬</span> Scheikunde</div>
+            <div class="marquee-item"><span>🌍</span> Aardrijkskunde</div>
+            <div class="marquee-item"><span>📖</span> Nederlands</div>
+            <div class="marquee-item"><span>🇬🇧</span> Engels</div>
+            <div class="marquee-item"><span>💶</span> Economie</div>
+            <div class="marquee-item"><span>⚛️</span> Natuurkunde</div>
+            <div class="marquee-item"><span>🏛️</span> Geschiedenis</div>
+            <div class="marquee-item"><span>🧬</span> Biologie</div>
+            <div class="marquee-item"><span>🇩🇪</span> Duits</div>
+        </div>
+    </div>
+
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Features</div>
+                <h2 class="section-title">Alles wat je nodig hebt<br>om te slagen.</h2>
+                <p class="section-subtitle">Geen eindeloze video's. Actieve begeleiding die zich aanpast aan hoe jij leert.</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-item span-8 reveal tilt-card" style="border-color: rgba(34, 211, 238, 0.25);">
+                    <div class="bento-glow cyan"></div>
+                    <div class="bento-icon cyan">🔮</div>
+                    <div style="display: inline-block; background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(167, 139, 250, 0.15)); border: 1px solid rgba(34, 211, 238, 0.3); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; color: var(--cyan); margin-bottom: 12px; font-weight: 600;">ONZE USP</div>
+                    <h3>ExamPredictor</h3>
+                    <p>Wij voorspellen welke onderwerpen op jouw eindexamen komen. Op basis van 10+ jaar officiële examendata analyseren we patronen en kansberekeningen per domein. Zo weet jij precies waar je op moet focussen.</p>
+                </div>
+                <div class="bento-item span-4 reveal reveal-delay-1 tilt-card">
+                    <div class="bento-icon purple">🎯</div>
+                    <h3>Slim oefenen</h3>
+                    <p>AI-gegenereerde vragen die zich aanpassen aan jouw niveau. Nooit dezelfde vraag twee keer.</p>
+                </div>
+                <div class="bento-item span-4 reveal tilt-card">
+                    <div class="bento-icon pink">😌</div>
+                    <h3>Zen Mode</h3>
+                    <p>Stress gedetecteerd? Automatisch rustige begeleiding en ademhalingsoefeningen.</p>
+                </div>
+                <div class="bento-item span-8 reveal reveal-delay-1 tilt-card">
+                    <div class="bento-glow purple"></div>
+                    <div class="bento-icon orange">📊</div>
+                    <h3>Weet waar je staat</h3>
+                    <p>Per domein zie je jouw beheersing, examenkans en gereedheid. De ExamPredictor toont precies welke onderwerpen kritiek zijn en waar je al goed scoort.</p>
+                </div>
+                <div class="bento-item span-6 reveal tilt-card">
+                    <div class="bento-icon cyan">🌙</div>
+                    <h3>24/7 beschikbaar</h3>
+                    <p>Om 3 uur 's nachts nog een vraag? Je coach is er. Altijd. Geen wachttijden.</p>
+                </div>
+                <div class="bento-item span-6 reveal reveal-delay-1 tilt-card">
+                    <div class="bento-icon purple">🔒</div>
+                    <h3>Privacy first</h3>
+                    <p>Data blijft in Europa. AVG-compliant. Voorbereid op de EU AI Act.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ouders" class="section parents-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Voor ouders</div>
+                <h2 class="section-title">Rust aan de keukentafel.</h2>
+                <p class="section-subtitle">Weet precies hoe het gaat. Zonder te vragen.</p>
+            </div>
+
+            <div class="parents-grid">
+                <div class="dashboard-preview reveal">
+                    <div class="dash-header">
+                        <div class="dash-user">
+                            <div class="dash-avatar"></div>
+                            <div class="dash-user-info">
+                                <h4>Emma's voortgang</h4>
+                                <span>VWO • 6e klas</span>
+                            </div>
+                        </div>
+                        <div class="dash-status">● Actief</div>
+                    </div>
+                    <div class="dash-metrics">
+                        <div class="dash-metric">
+                            <div class="dash-metric-value">12u</div>
+                            <div class="dash-metric-label">Deze week</div>
+                        </div>
+                        <div class="dash-metric">
+                            <div class="dash-metric-value">89%</div>
+                            <div class="dash-metric-label">Gem. score</div>
+                        </div>
+                        <div class="dash-metric">
+                            <div class="dash-metric-value">6</div>
+                            <div class="dash-metric-label">Vakken</div>
+                        </div>
+                    </div>
+                    <div class="dash-progress">
+                        <div class="dash-progress-head">
+                            <span>Wiskunde B</span>
+                            <span>73%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parents-content reveal reveal-delay-1">
+                    <h3>Weet wat er speelt.<br>Zonder te vragen.</h3>
+                    <p>Het Ouder Dashboard toont real-time de voortgang per vak, sterke punten en aandachtspunten. Plus: ontvang AI-gegenereerde pedagogische tips om uw kind te ondersteunen.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+                            <span>Voortgang per vak met beheersingspercentages</span>
+                        </li>
+                        <li>
+                            <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+                            <span>Sterke punten en aandachtspunten analyse</span>
+                        </li>
+                        <li>
+                            <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+                            <span>AI-gegenereerde pedagogische tips voor ouders</span>
+                        </li>
+                        <li>
+                            <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+                            <span>Geen €60/uur bijlestarieven</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Prijzen</div>
+                <h2 class="section-title">Simpel. Eerlijk.</h2>
+                <p class="section-subtitle">Maandelijks opzegbaar. Geen verrassingen.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="plan reveal tilt-card">
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">€0 <span>/mnd</span></div>
+                    <div class="plan-desc">Probeer het uit</div>
+                    <ul class="plan-features">
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> 5 vragen per dag</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> 1 vak naar keuze</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="x"><path d="M18 6L6 18M6 6l12 12"/></svg> Ouder Dashboard</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="x"><path d="M18 6L6 18M6 6l12 12"/></svg> Zen Mode</li>
+                    </ul>
+                    <a href="https://app.glowexamen.nl" class="plan-btn">Start gratis</a>
+                </div>
+
+                <div class="plan reveal reveal-delay-1 tilt-card">
+                    <div class="plan-name">Focus</div>
+                    <div class="plan-price">€14,99 <span>/mnd</span></div>
+                    <div class="plan-desc">Je struikelvak</div>
+                    <ul class="plan-features">
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Onbeperkt 1 vak</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Zen Mode</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Ouder Dashboard</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="x"><path d="M18 6L6 18M6 6l12 12"/></svg> Meerdere vakken</li>
+                    </ul>
+                    <a href="https://app.glowexamen.nl" class="plan-btn">Kies 1 vak</a>
+                </div>
+
+                <div class="plan featured reveal reveal-delay-2 tilt-card">
+                    <div class="plan-badge">Populair</div>
+                    <div class="plan-name">Totaal</div>
+                    <div class="plan-price">€24,99 <span>/mnd</span></div>
+                    <div class="plan-desc">Alles onbeperkt</div>
+                    <ul class="plan-features">
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Alle vakken</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> VWO / HAVO / VMBO</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Persoonlijk leerplan</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> 24/7 coach</li>
+                    </ul>
+                    <a href="https://app.glowexamen.nl" class="plan-btn">Start 7 dagen gratis</a>
+                </div>
+
+                <div class="plan reveal reveal-delay-3 tilt-card">
+                    <div class="plan-name">Gezin</div>
+                    <div class="plan-price">€64,99 <span>/mnd</span></div>
+                    <div class="plan-desc">Tot 3 kinderen</div>
+                    <ul class="plan-features">
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> 3 accounts</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Alle niveaus</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Centraal dashboard</li>
+                        <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Alle features</li>
+                    </ul>
+                    <a href="https://app.glowexamen.nl" class="plan-btn">Kies gezinsplan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">FAQ</div>
+                <h2 class="section-title">Vragen? Antwoorden.</h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item reveal">
+                    <div class="faq-q">Hoe werkt Focus (1 vak)?</div>
+                    <div class="faq-a">Je kiest bij het starten welk vak je wilt. Onbeperkt toegang tot dat vak. Later upgraden kan altijd.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q">Is de proefperiode echt gratis?</div>
+                    <div class="faq-a">Ja. Geen betaalgegevens nodig. Na 7 dagen stopt het automatisch als je niet upgradet.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">Kan ik maandelijks stoppen?</div>
+                    <div class="faq-a">Ja. Eén klik in je dashboard. Geen gedoe, geen kleine lettertjes.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q">Welke vakken zijn er?</div>
+                    <div class="faq-a">Alle examenvakken voor VWO, HAVO en VMBO. Van Wiskunde tot Geschiedenis.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">Hoe is dit anders dan ChatGPT?</div>
+                    <div class="faq-a">GlowExamen is gebaseerd op Nederlandse examenstof, verzint geen feiten, en heeft de ExamPredictor die voorspelt welke onderwerpen op je examen komen. Plus voortgangsrapportages en een Ouder Dashboard.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q">Hoe werkt de ExamPredictor?</div>
+                    <div class="faq-a">De ExamPredictor analyseert 10+ jaar officiële examendata en berekent per domein de kans dat het op jouw examen voorkomt. Gecombineerd met jouw beheersing zie je precies waar je moet focussen.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">Is mijn data veilig?</div>
+                    <div class="faq-a">Alle data op Europese servers. AVG-compliant. Voorbereid op de EU AI Act.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <div class="faq-q">Krijg ik steeds dezelfde vragen?</div>
+                    <div class="faq-a">Nee. Onze AI genereert continu nieuwe examenvragen. Beantwoorde vragen worden pas na 30 dagen opnieuw aangeboden, zodat je maandenlang kunt oefenen zonder herhaling.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Klaar om te slagen?</h2>
+                <p>Start vandaag nog met je voorbereiding. 7 dagen gratis, geen creditcard nodig.</p>
+                <a href="https://app.glowexamen.nl" class="btn-primary">
+                    Start gratis
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo-text">GlowExamen</a>
+                    <p>De slimste manier om je voor te bereiden op je eindexamen.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Prijzen</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <a href="mailto:support@glowexamen.nl">Contact</a>
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Voorwaarden</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-badges">
+                    <div class="footer-badge">🇪🇺 Data in Europa</div>
+                    <div class="footer-badge">🔒 AVG Compliant</div>
+                    <div class="footer-badge">🛡️ EU AI Act Ready</div>
+                </div>
+                <div class="footer-copy">
+                    © 2025 GlowExamen · <a href="https://www.aira-ai.nl">AIRA AI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // 0. SCROLL PROGRESS BAR
+        // ============================================
+        const scrollProgress = document.getElementById('scrollProgress');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+
+        // ============================================
+        // 0.5 KONAMI CODE EASTER EGG
+        // ============================================
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    triggerConfetti();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function triggerConfetti() {
+            const colors = ['#22d3ee', '#a78bfa', '#ec4899', '#fb923c', '#22c55e', '#ffffff'];
+            const confettiCount = 150;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s linear forwards`;
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 5500);
+            }
+
+            // Show secret message
+            const msg = document.createElement('div');
+            msg.innerHTML = '🎉 Je hebt de geheime code gevonden! 🎮';
+            msg.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0,0,0,0.9);
+                color: white;
+                padding: 24px 48px;
+                border-radius: 16px;
+                font-size: 20px;
+                font-weight: 600;
+                z-index: 999999;
+                border: 1px solid rgba(255,255,255,0.2);
+                animation: messageIn 0.4s forwards;
+            `;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        }
+
+        // ============================================
+        // 0.6 SCRIPTED CHAT DEMO
+        // ============================================
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+
+        const chatScript = [
+            { type: 'user', text: 'Kun je integralen uitleggen?', delay: 1500 },
+            { type: 'typing', delay: 800 },
+            { type: 'ai', text: 'Natuurlijk! Een integraal is eigenlijk het omgekeerde van differentiëren. Stel je voor dat je de oppervlakte onder een grafiek wilt berekenen... 📐', delay: 2500 },
+            { type: 'typing', delay: 600 },
+            { type: 'ai', text: 'Zal ik beginnen met een simpel voorbeeld? Bijvoorbeeld ∫x² dx?', delay: 1800 }
+        ];
+
+        let chatIndex = 0;
+        let chatStarted = false;
+
+        function startChatDemo() {
+            if (chatStarted) return;
+            chatStarted = true;
+            chatInput.value = '';
+            playNextChatMessage();
+        }
+
+        function playNextChatMessage() {
+            if (chatIndex >= chatScript.length) return;
+
+            const msg = chatScript[chatIndex];
+            
+            setTimeout(() => {
+                // Remove any existing typing indicator
+                const existingTyping = chatMessages.querySelector('.chat-typing');
+                if (existingTyping) existingTyping.remove();
+
+                if (msg.type === 'typing') {
+                    const typing = document.createElement('div');
+                    typing.className = 'chat-typing';
+                    typing.innerHTML = '<span></span><span></span><span></span>';
+                    chatMessages.appendChild(typing);
+                } else {
+                    const bubble = document.createElement('div');
+                    bubble.className = msg.type === 'user' ? 'chat-message-user' : 'chat-message-ai';
+                    bubble.textContent = msg.text;
+                    chatMessages.appendChild(bubble);
+                }
+
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                chatIndex++;
+                playNextChatMessage();
+            }, msg.delay);
+        }
+
+        // Start chat demo when it comes into view
+        const chatObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(startChatDemo, 500);
+                    chatObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        chatObserver.observe(document.getElementById('chatDemo'));
+
+        // Also trigger on click
+        chatSend.addEventListener('click', () => {
+            if (!chatStarted) {
+                chatInput.value = 'Kun je integralen uitleggen?';
+                setTimeout(startChatDemo, 300);
+            }
+        });
+
+        // ============================================
+        // 1. CURSOR GLOW EFFECT
+        // ============================================
+        const cursorGlow = document.getElementById('cursorGlow');
+        let cursorX = 0, cursorY = 0;
+        let glowX = 0, glowY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+            cursorGlow.classList.add('visible');
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorGlow.classList.remove('visible');
+        });
+
+        // Smooth cursor follow
+        function animateCursor() {
+            glowX += (cursorX - glowX) * 0.1;
+            glowY += (cursorY - glowY) * 0.1;
+            cursorGlow.style.left = glowX + 'px';
+            cursorGlow.style.top = glowY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // ============================================
+        // 2. PARALLAX MESH GRADIENT
+        // ============================================
+        const bgMesh = document.getElementById('bgMesh');
+        
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 30;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * 30;
+            bgMesh.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        // ============================================
+        // 3. TYPING EFFECT
+        // ============================================
+        const typingText = document.getElementById('typing-text');
+        const typingGradient = document.getElementById('typing-gradient');
+        const typingCursor = document.getElementById('typing-cursor');
+        
+        const line1 = "Slagen begint";
+        const line2 = "hier.";
+        let i = 0;
+        let phase = 1;
+
+        function typeWriter() {
+            if (phase === 1) {
+                if (i < line1.length) {
+                    typingText.textContent += line1.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 60);
+                } else {
+                    phase = 2;
+                    i = 0;
+                    setTimeout(typeWriter, 300);
+                }
+            } else if (phase === 2) {
+                if (i < line2.length) {
+                    typingGradient.textContent += line2.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 80);
+                } else {
+                    // Hide cursor after typing complete
+                    setTimeout(() => {
+                        typingCursor.style.display = 'none';
+                    }, 1500);
+                }
+            }
+        }
+
+        // Start typing after page load
+        setTimeout(typeWriter, 800);
+
+        // ============================================
+        // 4. COUNTER ANIMATION
+        // ============================================
+        function animateCounter(el) {
+            const target = parseFloat(el.dataset.target);
+            const duration = 2000;
+            const start = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = (target * easeOut).toFixed(2);
+                
+                el.textContent = current.replace('.', ',');
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // Trigger counter when price is visible
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-value').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // ============================================
+        // 5. SCROLL REVEAL WITH STAGGER
+        // ============================================
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add stagger delay based on element position
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay * 100);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal').forEach((el, index) => {
+            el.dataset.delay = index % 4; // Stagger every 4 elements
+            revealObserver.observe(el);
+        });
+
+        // ============================================
+        // 6. 3D TILT EFFECT ON CARDS
+        // ============================================
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // ============================================
+        // 7. SMOOTH SCROLL
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ============================================
+        // 8. NAVBAR SCROLL EFFECT
+        // ============================================
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(15, 15, 26, 0.95)';
+                nav.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.08)';
+                nav.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>

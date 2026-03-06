@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijzen & Abonnementen | GlowExamen by Aira</title>
+    <meta name="description" content="Transparante prijzen voor de beste AI-examentraining van Nederland. Start gratis, upgrade voor Pro. Geen verborgen kosten.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep: #020408;
+            --bg-panel: #0B0D14;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --aira-blue: #3B82F6;
+            --glow-purple: #7C3AED;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --success: #10B981;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        /* Background FX */
+        .ambient-glow {
+            position: fixed; top: -20%; left: 50%; transform: translateX(-50%);
+            width: 80vw; height: 80vw;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08), transparent 60%);
+            filter: blur(120px); z-index: -1;
+        }
+
+        /* Navigation (Consistent with Home) */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 80px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(2, 4, 8, 0.85); backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border); z-index: 1000;
+        }
+        .nav-inner {
+            width: 100%; max-width: 1200px; padding: 0 24px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            font-family: var(--font-heading); font-weight: 700; font-size: 24px; color: white; text-decoration: none;
+        }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-right: 24px; font-size: 14px; transition: color 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        /* Pricing Hero */
+        .hero {
+            padding-top: 160px; padding-bottom: 60px; text-align: center;
+        }
+        h1 {
+            font-family: var(--font-heading); font-size: clamp(40px, 5vw, 64px);
+            margin-bottom: 20px; line-height: 1.1;
+        }
+        .subtitle { color: var(--text-muted); font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+        /* Pricing Cards */
+        .pricing-container {
+            max-width: 1200px; margin: 0 auto; padding: 40px 24px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px; align-items: start;
+        }
+
+        .plan-card {
+            background: var(--bg-panel); border: 1px solid var(--glass-border);
+            border-radius: 24px; padding: 40px; position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .plan-card:hover { transform: translateY(-5px); }
+
+        /* Featured Card Styling */
+        .plan-card.featured {
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), var(--bg-panel));
+            border: 1px solid var(--aira-blue);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .badge {
+            background: var(--aira-blue); color: white; font-size: 12px; font-weight: 700;
+            padding: 6px 12px; border-radius: 20px; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .plan-name { font-family: var(--font-heading); font-size: 20px; margin-bottom: 10px; color: white; }
+        .price { font-family: var(--font-heading); font-size: 48px; font-weight: 700; margin-bottom: 8px; }
+        .price span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+        .desc { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; min-height: 40px; }
+
+        .features-list { list-style: none; margin-bottom: 32px; }
+        .features-list li { display: flex; gap: 12px; margin-bottom: 16px; color: #E2E8F0; font-size: 15px; }
+        .features-list li svg { color: var(--success); flex-shrink: 0; }
+        .features-list li.disabled { color: #475569; text-decoration: line-through; }
+        .features-list li.disabled svg { color: #475569; }
+
+        .btn {
+            display: block; width: 100%; padding: 16px; border-radius: 12px;
+            text-align: center; text-decoration: none; font-weight: 600; transition: all 0.3s;
+        }
+        .btn-primary { background: white; color: black; }
+        .btn-primary:hover { box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+        .btn-outline { border: 1px solid var(--glass-border); color: white; background: rgba(255,255,255,0.02); }
+        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
+
+        /* Comparison Table */
+        .compare-section { max-width: 1000px; margin: 80px auto; padding: 0 24px; }
+        .compare-header { text-align: center; margin-bottom: 40px; }
+        
+        .compare-table {
+            width: 100%; border-collapse: collapse; background: var(--bg-panel);
+            border-radius: 24px; overflow: hidden; border: 1px solid var(--glass-border);
+        }
+        .compare-table th, .compare-table td {
+            padding: 20px; border-bottom: 1px solid var(--glass-border); text-align: center; color: var(--text-muted);
+        }
+        .compare-table th:first-child, .compare-table td:first-child {
+            text-align: left; color: white; width: 40%; padding-left: 32px;
+        }
+        .compare-table th { background: rgba(255,255,255,0.02); color: white; font-family: var(--font-heading); }
+        
+        .check-icon { color: var(--success); font-weight: bold; }
+        
+        /* FAQ */
+        .faq-section { max-width: 800px; margin: 80px auto; padding: 0 24px; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 20px; }
+        .faq-q { color: white; font-weight: 600; margin-bottom: 8px; cursor: pointer; }
+        .faq-a { color: var(--text-muted); font-size: 15px; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border); padding: 60px 24px;
+            text-align: center; color: var(--text-muted); font-size: 14px; margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">GLOW<span style="color: #475569;">EXAMEN</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="https://app-526684575961.us-west1.run.app" style="color: white;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Investeer in je toekomst.<br><span style="color: var(--text-muted);">Voor de prijs van één pizza.</span></h1>
+        <p class="subtitle">Geen verborgen kosten. Geen lange contracten. Maandelijks opzegbaar.</p>
+    </div>
+
+    <div class="pricing-container">
+        <div class="plan-card">
+            <div class="plan-name">Starter</div>
+            <div class="price">€0<span>/maand</span></div>
+            <p class="desc">Ontdek hoe de Aira Neural Core werkt.</p>
+            
+            <ul class="features-list">
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 5 AI-vragen per dag</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 1 Vak naar keuze</li>
+                <li class="disabled"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Ouder Dashboard</li>
+                <li class="disabled"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Examen Stress Modus</li>
+            </ul>
+            
+            <a href="https://app-526684575961.us-west1.run.app" class="btn btn-outline">Start Gratis</a>
+        </div>
+
+        <div class="plan-card featured">
+            <div class="badge">Aira Recommended</div>
+            <div class="plan-name">Glow Pro</div>
+            <div class="price">€24,99<span>/maand</span></div>
+            <p class="desc">De complete toolkit voor stressvrij slagen.</p>
+            
+            <ul class="features-list">
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Onbeperkt</strong> AI Coaching</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Alle vakken & Niveaus</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Zen Zone™ (Anti-Stress)</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Ouder Dashboard</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Proefexamens Analyse</li>
+            </ul>
+            
+            <a href="https://app-526684575961.us-west1.run.app" class="btn btn-primary">Start 14 Dagen Gratis</a>
+        </div>
+
+        <div class="plan-card">
+            <div class="plan-name">Family</div>
+            <div class="price">€64,99<span>/maand</span></div>
+            <p class="desc">Voor gezinnen met meerdere examenkandidaten.</p>
+            
+            <ul class="features-list">
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Alles van Pro</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Tot 3 Kinderen</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Centraal Ouder Account</li>
+                <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Support (Aira NL)</li>
+            </ul>
+            
+            <a href="https://app-526684575961.us-west1.run.app" class="btn btn-outline">Kies Family</a>
+        </div>
+    </div>
+
+    <div class="compare-section">
+        <div class="compare-header">
+            <h2>Features in detail</h2>
+        </div>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>Functionaliteit</th>
+                    <th>Starter</th>
+                    <th style="color: var(--aira-blue);">Pro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Aira Neural Core™ (AI Chat)</td>
+                    <td>5 vragen/dag</td>
+                    <td>Onbeperkt</td>
+                </tr>
+                <tr>
+                    <td>Syllabus Dekking (HAVO/VWO)</td>
+                    <td>1 vak</td>
+                    <td>Alle vakken</td>
+                </tr>
+                <tr>
+                    <td>Fouten Analyse</td>
+                    <td>-</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Ouder Dashboard</td>
+                    <td>-</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Reclamevrij</td>
+                    <td>-</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="faq-section">
+        <h2 style="margin-bottom: 30px; font-family: var(--font-heading);">Veelgestelde vragen over betaling</h2>
+        
+        <div class="faq-item">
+            <div class="faq-q">Hoe werkt de 14 dagen gratis trial?</div>
+            <div class="faq-a">Je krijgt direct toegang tot alle Pro-functies. Na 14 dagen stopt de trial automatisch, tenzij je besluit door te gaan. Je zit nergens aan vast.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Kan ik maandelijks opzeggen?</div>
+            <div class="faq-a">Ja, absoluut. Wij geloven niet in wurgcontracten. Je kunt via je dashboard met één klik opzeggen.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Zijn er verborgen kosten?</div>
+            <div class="faq-a">Nee. De prijs die je ziet is inclusief BTW en alles wat je nodig hebt.</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GlowExamen by Aira AI. Alle prijzen incl. BTW.</p>
+    </footer>
+
+</body>
+</html>
