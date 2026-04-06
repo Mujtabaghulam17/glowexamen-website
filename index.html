@@ -945,6 +945,7 @@
             font-weight: 500;
             color: var(--text-dim);
             -webkit-text-fill-color: var(--text-dim);
+            white-space: nowrap;
         }
 
         .plan-desc {
@@ -991,6 +992,7 @@
             background: rgba(255,255,255,0.08);
             border: 1px solid rgba(255,255,255,0.1);
             color: var(--text);
+            cursor: pointer;
         }
 
         .plan-btn:hover {
@@ -1492,6 +1494,186 @@
         @media (max-width: 768px) {
             .cursor-glow { display: none; }
         }
+
+        /* HERO COUNTDOWN WIDGET */
+        .hero-countdown {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 36px;
+            justify-content: center;
+        }
+
+        .cd-block {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 12px 18px;
+            min-width: 68px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .cd-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cd-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        .cd-sep {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 16px;
+        }
+
+        .cd-caption {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            text-align: center;
+            margin-top: -24px;
+            margin-bottom: 36px;
+        }
+
+        /* HERO SOCIAL PROOF */
+        .hero-social-proof {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 13px;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 48px;
+        }
+
+        .hero-social-proof .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-social-proof .proof-item strong {
+            color: rgba(255,255,255,0.75);
+            font-weight: 600;
+        }
+
+        .hero-social-proof .sep {
+            color: rgba(255,255,255,0.2);
+        }
+
+        /* BENTO ICON SVG */
+        .bento-icon svg { width: 28px; height: 28px; }
+        .bento-icon.cyan svg { stroke: var(--cyan); }
+        .bento-icon.purple svg { stroke: var(--purple); }
+        .bento-icon.pink svg { stroke: var(--pink); }
+        .bento-icon.orange svg { stroke: var(--orange); }
+
+        /* TESTIMONIALS */
+        .testimonials-section { padding: 120px 0; }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: default;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255,255,255,0.18);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.35);
+            background: var(--glass-hover);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-stars svg {
+            width: 17px;
+            height: 17px;
+            fill: #fbbf24;
+            stroke: none;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--bg);
+            flex-shrink: 0;
+        }
+
+        .testimonial-avatar.av-cyan { background: linear-gradient(135deg, var(--cyan), #0ea5e9); }
+        .testimonial-avatar.av-purple { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+        .testimonial-avatar.av-orange { background: linear-gradient(135deg, var(--orange), #f97316); }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+
+        @media (max-width: 900px) {
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+            .urgency-bar { font-size: 12px; padding: 10px 16px; }
+        }
     </style>
 </head>
 <body>
@@ -1504,10 +1686,10 @@
             <div class="nav-inner">
                 <a href="#" class="logo" aria-label="GlowExamen - Terug naar home">GlowExamen</a>
                 <a href="#features" class="nav-link">Features</a>
-                <a href="#ouders" class="nav-link">Ouders</a>
+                <a href="#reviews" class="nav-link">Ervaringen</a>
                 <a href="#pricing" class="nav-link">Prijzen</a>
                 <a href="#faq" class="nav-link">FAQ</a>
-                <a href="https://app.glowexamen.nl" class="nav-cta">Start gratis →</a>
+                <a href="https://app.glowexamen.nl" class="nav-cta">Start 7 dagen gratis →</a>
                 <button class="mobile-menu-btn" aria-label="Menu openen">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
                 </button>
@@ -1520,7 +1702,7 @@
     <section class="hero" aria-label="Introductie">
         <div class="hero-badge">
             <div class="dot"></div>
-            De toekomst begint hier
+            AI Examentrainer voor VWO · HAVO · VMBO
         </div>
 
         <h1>
@@ -1532,18 +1714,52 @@
             Je persoonlijke examencoach die 24/7 klaarstaat. Ons zelflerende algoritme voorspelt welke onderwerpen op jouw eindexamen komen. Van VWO tot VMBO.
         </p>
 
+        <div class="hero-countdown" aria-label="Aftellen tot eindexamen 2026">
+            <div class="cd-block">
+                <div class="cd-num" id="cd-days">37</div>
+                <div class="cd-label">Dagen</div>
+            </div>
+            <div class="cd-sep">:</div>
+            <div class="cd-block">
+                <div class="cd-num" id="cd-hours">00</div>
+                <div class="cd-label">Uur</div>
+            </div>
+            <div class="cd-sep">:</div>
+            <div class="cd-block">
+                <div class="cd-num" id="cd-mins">00</div>
+                <div class="cd-label">Min</div>
+            </div>
+            <div class="cd-sep">:</div>
+            <div class="cd-block">
+                <div class="cd-num" id="cd-secs">00</div>
+                <div class="cd-label">Sec</div>
+            </div>
+        </div>
+        <p class="cd-caption">Tot het eerste eindexamen 2026 — 13 mei</p>
+
         <div class="hero-cta-group">
             <a href="https://app.glowexamen.nl" class="btn-primary">
                 Start 7 dagen gratis
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#pricing" class="btn-secondary">Bekijk prijzen</a>
+            <a href="#features" class="btn-secondary">Hoe werkt het?</a>
+        </div>
+
+        <div class="hero-social-proof">
+            <span class="proof-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <strong>500+</strong> scholieren bereiden zich al voor
+            </span>
+            <span class="sep">·</span>
+            <span class="proof-item">Geen creditcard nodig</span>
+            <span class="sep">·</span>
+            <span class="proof-item">Elke dag opzegbaar</span>
         </div>
 
         <div class="hero-price">
             <div class="price-amount">€<span class="counter-value" data-target="14.99">0</span></div>
             <div class="price-info">
-                <div class="label">Vanaf per maand</div>
+                <div class="label">Vanaf per 4 weken</div>
                 <div class="desc">7 dagen gratis • Geen creditcard</div>
             </div>
         </div>
@@ -1551,7 +1767,7 @@
         <!-- INTERACTIVE CHAT DEMO -->
         <div class="chat-demo" id="chatDemo">
             <div class="chat-demo-header">
-                <div class="chat-demo-avatar">🎓</div>
+                <div class="chat-demo-avatar" style="font-size:18px;background:linear-gradient(135deg,var(--cyan),var(--purple));display:flex;align-items:center;justify-content:center;color:var(--bg);font-family:'Space Grotesk',sans-serif;font-weight:700;">GC</div>
                 <div class="chat-demo-info">
                     <h4>Glow Coach</h4>
                     <span>● Online</span>
@@ -1568,7 +1784,7 @@
                 </button>
             </div>
         </div>
-        <p class="chat-demo-label">✨ Live preview — Probeer het zelf in de app</p>
+        <p class="chat-demo-label">Live preview — Probeer het zelf in de app</p>
     </section>
 
     <div class="marquee-section">
@@ -1607,36 +1823,128 @@
             <div class="bento-grid">
                 <div class="bento-item span-8 reveal tilt-card" style="border-color: rgba(34, 211, 238, 0.25);">
                     <div class="bento-glow cyan"></div>
-                    <div class="bento-icon cyan">🔮</div>
+                    <div class="bento-icon cyan">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
+                        </svg>
+                    </div>
                     <div style="display: inline-block; background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(167, 139, 250, 0.15)); border: 1px solid rgba(34, 211, 238, 0.3); border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; color: var(--cyan); margin-bottom: 12px; font-weight: 600;">ONZE USP</div>
                     <h3>ExamPredictor</h3>
                     <p>Ons zelflerende algoritme analyseert 10+ jaar officiële examens en voorspelt welke onderwerpen op jouw examen komen. Zo oefen jij precies de stof die ertoe doet.</p>
                 </div>
                 <div class="bento-item span-4 reveal reveal-delay-1 tilt-card">
-                    <div class="bento-icon purple">🎯</div>
+                    <div class="bento-icon purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
                     <h3>Slim oefenen</h3>
                     <p>AI-gegenereerde vragen die zich aanpassen aan jouw niveau. Nooit dezelfde vraag twee keer.</p>
                 </div>
                 <div class="bento-item span-4 reveal tilt-card">
-                    <div class="bento-icon pink">😌</div>
+                    <div class="bento-icon pink">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
                     <h3>Zen Mode</h3>
                     <p>Stress gedetecteerd? Automatisch rustige begeleiding en ademhalingsoefeningen.</p>
                 </div>
                 <div class="bento-item span-8 reveal reveal-delay-1 tilt-card">
                     <div class="bento-glow purple"></div>
-                    <div class="bento-icon orange">📊</div>
+                    <div class="bento-icon orange">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+                            <line x1="2" y1="20" x2="22" y2="20"/>
+                        </svg>
+                    </div>
                     <h3>Weet waar je staat</h3>
                     <p>Per domein zie je de voorspelde examenkans en jouw beheersing. Zo weet je exact welke onderwerpen nog aandacht nodig hebben voor het examen.</p>
                 </div>
                 <div class="bento-item span-6 reveal tilt-card">
-                    <div class="bento-icon cyan">🌙</div>
+                    <div class="bento-icon cyan">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
                     <h3>24/7 beschikbaar</h3>
                     <p>Om 3 uur 's nachts nog een vraag? Je coach is er. Altijd. Geen wachttijden.</p>
                 </div>
                 <div class="bento-item span-6 reveal reveal-delay-1 tilt-card">
-                    <div class="bento-icon purple">🔒</div>
+                    <div class="bento-icon purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <polyline points="9 12 11 14 15 10"/>
+                        </svg>
+                    </div>
                     <h3>Privacy first</h3>
                     <p>Data blijft in Europa. AVG-compliant. Voorbereid op de EU AI Act.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="section testimonials-section" aria-label="Ervaringen van scholieren en ouders">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Ervaringen</div>
+                <h2 class="section-title">Scholieren die al slimmer studeren.</h2>
+                <p class="section-subtitle">Geen betalende getuigenissen — alleen echte verhalen van gebruikers die klaarstaan voor hun examen.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"De ExamPredictor had krachten en momenten als toponderwerp bij Natuurkunde aangegeven. Dat stond er echt op. Ik had het nooit zo specifiek geleerd zonder GlowExamen."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar av-cyan">EV</div>
+                        <div>
+                            <div class="testimonial-name">Emma V.</div>
+                            <div class="testimonial-role">VWO 6 — Natuurkunde</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Bijles was €60 per uur en ik snapte het nog steeds niet. GlowExamen legt het elke keer anders uit totdat je het echt begrijpt. Om 11 uur 's avonds gewoon vragen stellen."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar av-purple">TD</div>
+                        <div>
+                            <div class="testimonial-name">Thijs D.</div>
+                            <div class="testimonial-role">HAVO 5 — Wiskunde</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Ik kon eindelijk zien hoe het echt ging met wiskunde zonder elke avond te vragen. Het Ouder Dashboard geeft me rust. En goedkoper dan één bijlesuur per week."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar av-orange">SK</div>
+                        <div>
+                            <div class="testimonial-name">Sanne K.</div>
+                            <div class="testimonial-role">Ouder van VWO-leerling</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1718,7 +2026,7 @@
             <div class="section-header reveal">
                 <div class="section-tag">Prijzen</div>
                 <h2 class="section-title">Simpel. Eerlijk.</h2>
-                <p class="section-subtitle">Maandelijks opzegbaar. Geen verrassingen.</p>
+                <p class="section-subtitle">Elke 4 weken opzegbaar. Geen verrassingen. Geen verborgen kosten.</p>
             </div>
 
             <div class="pricing-grid">
@@ -1737,7 +2045,7 @@
 
                 <div class="plan reveal reveal-delay-1 tilt-card">
                     <div class="plan-name">Focus</div>
-                    <div class="plan-price">€14,99 <span>/mnd</span></div>
+                    <div class="plan-price">€14,99 <span>/ 4 weken</span></div>
                     <div class="plan-desc">Je struikelvak</div>
                     <ul class="plan-features">
                         <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Onbeperkt 1 vak</li>
@@ -1751,7 +2059,7 @@
                 <div class="plan featured reveal reveal-delay-2 tilt-card">
                     <div class="plan-badge">Populair</div>
                     <div class="plan-name">Totaal</div>
-                    <div class="plan-price">€24,99 <span>/mnd</span></div>
+                    <div class="plan-price">€24,99 <span>/ 4 weken</span></div>
                     <div class="plan-desc">Alles onbeperkt</div>
                     <ul class="plan-features">
                         <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> Alle vakken</li>
@@ -1764,7 +2072,7 @@
 
                 <div class="plan reveal reveal-delay-3 tilt-card">
                     <div class="plan-name">Gezin</div>
-                    <div class="plan-price">€64,99 <span>/mnd</span></div>
+                    <div class="plan-price">€64,99 <span>/ 4 weken</span></div>
                     <div class="plan-desc">Tot 3 kinderen</div>
                     <ul class="plan-features">
                         <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" class="check"><path d="M5 12l5 5L20 7"/></svg> 3 accounts</li>
@@ -1795,8 +2103,8 @@
                     <div class="faq-a">Ja. Geen betaalgegevens nodig. Na 7 dagen stopt het automatisch als je niet upgradet.</div>
                 </div>
                 <div class="faq-item reveal">
-                    <div class="faq-q">Kan ik maandelijks stoppen?</div>
-                    <div class="faq-a">Ja. Eén klik in je dashboard. Geen gedoe, geen kleine lettertjes.</div>
+                    <div class="faq-q">Kan ik opzeggen wanneer ik wil?</div>
+                    <div class="faq-a">Ja. Billing gaat elke 4 weken. Eén klik in je dashboard om op te zeggen. Geen gedoe, geen kleine lettertjes.</div>
                 </div>
                 <div class="faq-item reveal reveal-delay-1">
                     <div class="faq-q">Welke vakken zijn er?</div>
@@ -1825,12 +2133,13 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-box reveal">
-                <h2>Klaar om te slagen?</h2>
-                <p>Start vandaag nog met je voorbereiding. 7 dagen gratis, geen creditcard nodig.</p>
+                <h2>Het examen wacht niet. Jij ook niet.</h2>
+                <p>Elke dag dat je wacht, is een dag minder voorbereiding. Start nu — 7 dagen gratis, geen creditcard nodig.</p>
                 <a href="https://app.glowexamen.nl" class="btn-primary">
-                    Start gratis
+                    Start vandaag gratis
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
+                <p style="margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.4);">Elke 4 weken opzegbaar &nbsp;·&nbsp; 500+ scholieren gingen je voor</p>
             </div>
         </div>
     </section>
@@ -1954,7 +2263,7 @@
         const chatScript = [
             { type: 'user', text: 'Kun je integralen uitleggen?', delay: 1500 },
             { type: 'typing', delay: 800 },
-            { type: 'ai', text: 'Natuurlijk! Een integraal is eigenlijk het omgekeerde van differentiëren. Stel je voor dat je de oppervlakte onder een grafiek wilt berekenen... 📐', delay: 2500 },
+            { type: 'ai', text: 'Natuurlijk! Een integraal is eigenlijk het omgekeerde van differentiëren. Stel je voor dat je de oppervlakte onder een grafiek wilt berekenen...', delay: 2500 },
             { type: 'typing', delay: 600 },
             { type: 'ai', text: 'Zal ik beginnen met een simpel voorbeeld? Bijvoorbeeld ∫x² dx?', delay: 1800 }
         ];
@@ -2056,12 +2365,40 @@
         });
 
         // ============================================
+        // 2.5 EXAM COUNTDOWN
+        // ============================================
+        (function() {
+            const examDate = new Date('2026-05-13T08:00:00');
+            function pad(n) { return String(n).padStart(2, '0'); }
+            function updateCountdown() {
+                const now = new Date();
+                const diff = examDate - now;
+                if (diff <= 0) return;
+                const totalSeconds = Math.floor(diff / 1000);
+                const days = Math.floor(totalSeconds / 86400);
+                const hours = Math.floor((totalSeconds % 86400) / 3600);
+                const mins = Math.floor((totalSeconds % 3600) / 60);
+                const secs = totalSeconds % 60;
+                const dEl = document.getElementById('cd-days');
+                const hEl = document.getElementById('cd-hours');
+                const mEl = document.getElementById('cd-mins');
+                const sEl = document.getElementById('cd-secs');
+                if (dEl) dEl.textContent = days;
+                if (hEl) hEl.textContent = pad(hours);
+                if (mEl) mEl.textContent = pad(mins);
+                if (sEl) sEl.textContent = pad(secs);
+            }
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
+
+        // ============================================
         // 3. TYPING EFFECT
         // ============================================
         const typingText = document.getElementById('typing-text');
         const typingGradient = document.getElementById('typing-gradient');
         const typingCursor = document.getElementById('typing-cursor');
-        
+
         const line1 = "Slagen begint";
         const line2 = "hier.";
         let i = 0;
