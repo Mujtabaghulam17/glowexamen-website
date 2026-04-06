@@ -3,61 +3,703 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy & AI Veiligheid | GLOWEXAMEN</title>
-    <meta name="description" content="Privacybeleid en AI-veiligheid van GlowExamen. Data in Europa, AVG-compliant, voorbereid op de EU AI Act.">
+    <meta name="theme-color" content="#0f0f1a">
+    <title>Privacy & AI Veiligheid | GlowExamen</title>
+    <meta name="description" content="Privacybeleid en AI-veiligheid van GlowExamen. Data in Europa, AVG-compliant en ontwikkeld met veiligheid voor leerlingen voorop.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.glowexamen.nl/privacy.html">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { background: #050507; color: #F3F4F6; font-family: 'Inter', sans-serif; line-height: 1.6; padding: 40px 20px; max-width: 800px; margin: 0 auto; }
-        h1, h2 { font-family: 'Space Grotesk', sans-serif; color: white; }
-        h1 { font-size: 36px; margin-bottom: 10px; }
-        h2 { font-size: 24px; margin-top: 40px; margin-bottom: 16px; color: #8B5CF6; }
-        p { color: #9CA3AF; margin-bottom: 16px; }
-        ul { color: #9CA3AF; margin-bottom: 24px; padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .back-link { color: white; text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 40px; }
-        .badge { background: rgba(16, 185, 129, 0.1); color: #10B981; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; border: 1px solid rgba(16, 185, 129, 0.2); }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0f0f1a;
+            --surface: rgba(255, 255, 255, 0.06);
+            --surface-strong: rgba(255, 255, 255, 0.09);
+            --surface-border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.66);
+            --text-soft: rgba(255, 255, 255, 0.46);
+            --cyan: #22d3ee;
+            --purple: #a78bfa;
+            --pink: #ec4899;
+            --green: #34d399;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; }
+
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+        .bg-mesh {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.18), transparent 35%),
+                radial-gradient(circle at 85% 15%, rgba(236, 72, 153, 0.16), transparent 32%),
+                radial-gradient(circle at 50% 85%, rgba(167, 139, 250, 0.2), transparent 38%),
+                var(--bg);
+        }
+
+        .bg-noise {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.18;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            padding: 18px 0;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 14px 18px;
+            border-radius: 22px;
+            background: rgba(12, 12, 24, 0.72);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.24);
+        }
+
+        .logo {
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            font-size: 22px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-link,
+        .nav-cta,
+        .back-pill {
+            text-decoration: none;
+            border-radius: 999px;
+            transition: 0.24s ease;
+        }
+
+        .nav-link,
+        .back-pill {
+            color: var(--text-dim);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-link:hover,
+        .back-pill:hover {
+            color: var(--text);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .nav-cta {
+            background: #fff;
+            color: #10101b;
+            padding: 11px 18px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px rgba(255,255,255,0.12);
+        }
+
+        main {
+            padding: 28px 0 96px;
+        }
+
+        .hero {
+            padding: 32px 0 52px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .hero-copy,
+        .hero-panel,
+        .section-card,
+        .aside-card,
+        .cta-card {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            overflow: hidden;
+        }
+
+        .hero-copy::before,
+        .hero-panel::before,
+        .section-card::before,
+        .aside-card::before,
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(34, 211, 238, 0.8), rgba(167, 139, 250, 0.35), transparent);
+        }
+
+        .hero-copy {
+            padding: 38px 36px;
+        }
+
+        .hero-panel {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.05);
+            color: var(--cyan);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 14px var(--cyan);
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            margin-bottom: 18px;
+        }
+
+        .hero-copy p {
+            color: var(--text-dim);
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 680px;
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .meta-pill,
+        .fact-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .meta-pill strong,
+        .fact-pill strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .hero-panel h2 {
+            font-size: 28px;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+
+        .hero-panel p {
+            color: var(--text-dim);
+            line-height: 1.75;
+        }
+
+        .panel-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .fact-pill {
+            border-radius: 18px;
+            padding: 14px 16px;
+        }
+
+        .overview {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .overview-card {
+            padding: 24px;
+            border-radius: 24px;
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .overview-card span {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--cyan);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .overview-card strong {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .overview-card p {
+            color: var(--text-dim);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.76fr) minmax(280px, 0.24fr);
+            gap: 24px;
+            margin-top: 36px;
+        }
+
+        .sections {
+            display: grid;
+            gap: 18px;
+        }
+
+        .section-card {
+            padding: 28px;
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cyan);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-card h2 {
+            font-size: 30px;
+            margin-bottom: 14px;
+            letter-spacing: -0.03em;
+        }
+
+        .section-card p,
+        .section-card li {
+            color: var(--text-dim);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .section-card p + p {
+            margin-top: 12px;
+        }
+
+        .section-card ul {
+            margin-top: 18px;
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .section-card li {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .section-card li::before {
+            content: '';
+            position: absolute;
+            top: 11px;
+            left: 0;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            box-shadow: 0 0 12px rgba(34, 211, 238, 0.35);
+        }
+
+        .section-card strong {
+            color: var(--text);
+        }
+
+        .aside {
+            display: grid;
+            gap: 18px;
+            align-content: start;
+        }
+
+        .aside-card {
+            padding: 24px;
+        }
+
+        .aside-card h3 {
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+
+        .aside-card p,
+        .aside-card li {
+            color: var(--text-dim);
+            line-height: 1.75;
+            font-size: 14px;
+        }
+
+        .aside-card ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .aside-card li {
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .aside-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+        }
+
+        .aside-card a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .cta {
+            margin-top: 32px;
+        }
+
+        .cta-card {
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .cta-card h2 {
+            font-size: 28px;
+            line-height: 1.05;
+            margin-bottom: 10px;
+        }
+
+        .cta-card p {
+            color: var(--text-dim);
+            line-height: 1.75;
+            max-width: 620px;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.24s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #10101b;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 34px rgba(255,255,255,0.14);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 980px) {
+            .hero-grid,
+            .content-grid,
+            .cta-card {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-card {
+                align-items: flex-start;
+            }
+
+            .cta-actions {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero-copy,
+            .hero-panel,
+            .section-card,
+            .aside-card,
+            .cta-card,
+            .overview-card {
+                padding: 22px;
+                border-radius: 24px;
+            }
+
+            .overview,
+            .panel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 { font-size: 42px; }
+        }
     </style>
 </head>
 <body>
+    <div class="bg-mesh"></div>
+    <div class="bg-noise"></div>
 
-    <a href="index.html" class="back-link">← Terug naar Home</a>
+    <header>
+        <div class="container">
+            <nav class="nav" aria-label="Legal navigatie">
+                <a href="index.html" class="logo">GlowExamen</a>
+                <div class="nav-links">
+                    <a href="index.html" class="back-pill">Terug naar home</a>
+                    <a href="index.html#pricing" class="nav-link">Prijzen</a>
+                    <a href="https://app.glowexamen.nl" class="nav-cta">Start 7 dagen gratis</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <h1>Privacy & AI Veiligheid</h1>
-    <p>Laatst bijgewerkt: 24 November 2025</p>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-copy">
+                        <div class="eyebrow">
+                            <span class="eyebrow-dot"></span>
+                            Privacy & AI Veiligheid
+                        </div>
+                        <h1>Je data hoort bij jou.</h1>
+                        <p>GlowExamen is gebouwd voor leerlingen en ouders. Dat betekent: minimale dataverzameling, opslag binnen de Europese Unie en duidelijke grenzen aan hoe AI jouw gegevens gebruikt.</p>
+                        <div class="meta-row">
+                            <div class="meta-pill"><strong>Laatst bijgewerkt</strong> 24 november 2025</div>
+                            <div class="meta-pill"><strong>Status</strong> AVG-compliant</div>
+                            <div class="meta-pill"><strong>Hosting</strong> Europese datacenters</div>
+                        </div>
+                    </div>
 
-    <p>Bij GlowExamen nemen we de privacy van leerlingen extreem serieus. Wij zijn een Nederlands bedrijf en voldoen volledig aan de Europese wetgeving.</p>
+                    <aside class="hero-panel">
+                        <h2>In het kort</h2>
+                        <p>We verkopen geen persoonsgegevens, trainen geen publieke AI-modellen op leerlingdata zonder expliciete toestemming en bieden transparantie voor ouders waar dat relevant en veilig is.</p>
+                        <div class="panel-grid">
+                            <div class="fact-pill"><strong>Geen verkoop</strong></div>
+                            <div class="fact-pill"><strong>EU-opslag</strong></div>
+                            <div class="fact-pill"><strong>AI afgebakend</strong></div>
+                            <div class="fact-pill"><strong>Ouderinzage</strong></div>
+                        </div>
+                    </aside>
+                </div>
 
-    <h2>1. Data Opslag & AVG (GDPR) <span class="badge">COMPLIANT</span></h2>
-    <p>Uw data is van u. Wij slaan persoonsgegevens op in datacenters binnen de <strong>Europese Unie</strong> (Frankfurt/Amsterdam). Er wordt geen data verkocht aan derden of advertentienetwerken.</p>
-    <ul>
-        <li><strong>Recht op vergetelheid:</strong> U kunt uw account en alle bijbehorende data op elk moment met één knop volledig verwijderen.</li>
-        <li><strong>Minimale data:</strong> Wij vragen alleen wat nodig is voor het leerproces (Naam, Email, Schoolniveau).</li>
-    </ul>
+                <div class="overview">
+                    <article class="overview-card">
+                        <span>Data</span>
+                        <strong>Alleen wat nodig is</strong>
+                        <p>We vragen alleen gegevens die nodig zijn voor accountbeheer, begeleiding en voortgang in het leerproces.</p>
+                    </article>
+                    <article class="overview-card">
+                        <span>AI</span>
+                        <strong>Geen vrij spel</strong>
+                        <p>Onze AI is begrensd rond Nederlandse examenstof en mag niet willekeurig buiten de syllabus improviseren.</p>
+                    </article>
+                    <article class="overview-card">
+                        <span>Controle</span>
+                        <strong>Verwijderen blijft mogelijk</strong>
+                        <p>Gebruikers kunnen hun account en bijbehorende gegevens verwijderen wanneer zij dat willen.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <h2>2. Gebruik van Kunstmatige Intelligentie (AI)</h2>
-    <p>GlowExamen wordt aangedreven door de AIRA Neural Core™. Wij committeren ons aan ethisch gebruik van AI, in lijn met de aankomende <strong>EU AI Act</strong>.</p>
-    <ul>
-        <li><strong>Geen training op uw data:</strong> De antwoorden die u of uw kind geeft, worden <strong>niet</strong> gebruikt om publieke AI-modellen te trainen zonder expliciete toestemming.</li>
-        <li><strong>Hallucinatie-preventie:</strong> Onze AI is strikt ingeperkt ("grounded") binnen de officiële Nederlandse eindexamenstof. De AI mag geen feiten verzinnen buiten de syllabus.</li>
-        <li><strong>Veiligheidsfilters:</strong> Onze systemen scannen continu op ongepaste taal of schadelijke interacties.</li>
-    </ul>
+        <section class="container">
+            <div class="content-grid">
+                <div class="sections">
+                    <article class="section-card" id="avg">
+                        <div class="section-kicker">01 · Data opslag & AVG</div>
+                        <h2>Data blijft in Europa</h2>
+                        <p>Uw data is van u. GlowExamen slaat persoonsgegevens op in datacenters binnen de <strong>Europese Unie</strong> en verkoopt geen gegevens aan derden of advertentienetwerken.</p>
+                        <ul>
+                            <li><strong>Recht op vergetelheid:</strong> u kunt uw account en alle bijbehorende gegevens volledig laten verwijderen.</li>
+                            <li><strong>Minimale data:</strong> we vragen alleen wat nodig is voor het leerproces, zoals naam, e-mail en schoolniveau.</li>
+                            <li><strong>Doelbinding:</strong> gegevens worden gebruikt voor accountbeheer, ondersteuning en leerbegeleiding, niet voor irrelevante commerciële doeleinden.</li>
+                        </ul>
+                    </article>
 
-    <h2>3. Ouderlijk Toezicht</h2>
-    <p>Omdat onze doelgroep deels minderjarig is, bieden wij transparantie tools.</p>
-    <ul>
-        <li>Ouders kunnen via het Ouder Dashboard inzien welke onderwerpen worden geoefend.</li>
-        <li>Er is geen directe messaging mogelijk tussen leerlingen onderling, wat de veiligheid waarborgt.</li>
-    </ul>
+                    <article class="section-card" id="ai">
+                        <div class="section-kicker">02 · Gebruik van AI</div>
+                        <h2>AI met grenzen</h2>
+                        <p>GlowExamen gebruikt AI om uitleg, begeleiding en oefenervaring te verbeteren. Die AI is niet onbeperkt: we bouwen deze met duidelijke veiligheidsgrenzen en in lijn met Europese regelgeving.</p>
+                        <ul>
+                            <li><strong>Geen training zonder toestemming:</strong> antwoorden van u of uw kind worden niet gebruikt om publieke AI-modellen te trainen zonder expliciete toestemming.</li>
+                            <li><strong>Grounded in examenstof:</strong> de AI is gericht op officiële Nederlandse examenstof en mag geen feiten verzinnen buiten de relevante syllabus.</li>
+                            <li><strong>Veiligheidsfilters:</strong> systemen scannen op ongepaste taal, schadelijke interacties en risicovol gebruik.</li>
+                        </ul>
+                    </article>
 
-    <h2>4. Beveiliging</h2>
-    <p>Alle verbindingen naar GlowExamen zijn versleuteld met <strong>SSL/TLS (HTTPS)</strong>. Wachtwoorden worden 'hashed' opgeslagen en zijn voor niemand leesbaar, ook niet voor ons personeel.</p>
+                    <article class="section-card" id="ouders">
+                        <div class="section-kicker">03 · Minderjarigen & ouders</div>
+                        <h2>Transparantie zonder onnodige blootstelling</h2>
+                        <p>Omdat een deel van onze gebruikers minderjarig is, ontwerpen we het product met extra aandacht voor veiligheid, toezicht en beperkte sociale risico’s.</p>
+                        <ul>
+                            <li><strong>Ouder Dashboard:</strong> ouders kunnen zien welke onderwerpen worden geoefend en hoe de voortgang eruitziet.</li>
+                            <li><strong>Geen leerling-onderling chatten:</strong> er is geen directe messaging tussen leerlingen onderling via het platform.</li>
+                            <li><strong>Doelgerichte inzage:</strong> inzicht is bedoeld voor begeleiding, niet voor publieke zichtbaarheid of sociale druk.</li>
+                        </ul>
+                    </article>
 
-    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 40px 0;">
+                    <article class="section-card" id="security">
+                        <div class="section-kicker">04 · Beveiliging</div>
+                        <h2>Versleuteld en afgeschermd</h2>
+                        <p>Alle verbindingen naar GlowExamen zijn versleuteld via <strong>SSL/TLS (HTTPS)</strong>. Wachtwoorden worden gehasht opgeslagen en zijn niet leesbaar voor medewerkers.</p>
+                        <p>We beoordelen beveiligingsmaatregelen continu en beperken toegang tot gevoelige systemen tot waar dat functioneel noodzakelijk is.</p>
+                    </article>
+                </div>
 
-    <p style="font-size: 14px;">Heeft u vragen over onze beveiliging? Mail onze Data Protection Officer via <a href="mailto:privacy@glowexamen.nl" style="color: #8B5CF6;">privacy@glowexamen.nl</a>.</p>
+                <aside class="aside">
+                    <div class="aside-card">
+                        <h3>Snel overzicht</h3>
+                        <ul>
+                            <li>Geen verkoop van persoonsgegevens</li>
+                            <li>Opslag in de Europese Unie</li>
+                            <li>AI niet trainen zonder toestemming</li>
+                            <li>Veiligheidsfilters en monitoring</li>
+                        </ul>
+                    </div>
 
+                    <div class="aside-card">
+                        <h3>Contact</h3>
+                        <p>Vragen over privacy, beveiliging of gegevensverwijdering? Neem contact op met onze privacy-contactpersoon via <a href="mailto:privacy@glowexamen.nl">privacy@glowexamen.nl</a>.</p>
+                    </div>
+
+                    <div class="aside-card">
+                        <h3>Voor ouders</h3>
+                        <p>GlowExamen is ontworpen om ouders inzicht te geven zonder leerlingen onnodig bloot te stellen aan sociale functies of externe netwerken binnen het product.</p>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="cta">
+                <div class="cta-card">
+                    <div>
+                        <h2>Nog vragen over privacy?</h2>
+                        <p>Als iets onduidelijk is, nemen we liever de tijd om het helder uit te leggen dan te verstoppen achter juridisch taalgebruik.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="mailto:privacy@glowexamen.nl" class="btn-secondary">Mail privacy</a>
+                        <a href="index.html" class="btn-primary">Terug naar GlowExamen</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
