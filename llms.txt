@@ -1,0 +1,29 @@
+# GlowExamen — AI Examentraining
+# https://www.glowexamen.nl
+
+## GlowExamen
+GlowExamen is de slimste AI-examentraining van Nederland voor VWO, HAVO en VMBO. Het zelflerende algoritme voorspelt welke onderwerpen op het eindexamen komen op basis van 10+ jaar officiële examendata. Met een persoonlijke AI-coach die 24/7 beschikbaar is, oefen je altijd gericht op de stof die er het meest toe doet.
+
+## Features
+- [ExamPredictor]: Zelflerend algoritme dat examenkansen per domein voorspelt op basis van historische patronen
+- [AI Coach]: 24/7 persoonlijke begeleiding die zich aanpast aan jouw niveau
+- [Zen Mode]: Stress-detectie met automatisch rustige begeleiding en ademhalingsoefeningen
+- [Ouder Dashboard]: Real-time voortgang per vak, sterke punten en aandachtspunten
+- [Slim oefenen]: AI-gegenereerde examenvragen — nooit dezelfde vraag twee keer
+
+## Pagina's
+- [Home]: https://www.glowexamen.nl/ — Overzicht van features, ervaringen en prijzen
+- [Prijzen]: https://www.glowexamen.nl/pricing.html — Abonnementen: Starter (gratis), Focus (€14,99/4 weken), Totaal (€24,99/4 weken), Gezin (€64,99/4 weken)
+- [Privacy]: https://www.glowexamen.nl/privacy.html — AVG-compliant privacybeleid
+- [Voorwaarden]: https://www.glowexamen.nl/terms.html — Algemene voorwaarden
+
+## App
+- [App]: https://app.glowexamen.nl — Start 7 dagen gratis, geen creditcard nodig
+
+## Vakken
+Alle examenvakken voor VWO, HAVO en VMBO: Wiskunde, Nederlands, Engels, Natuurkunde, Scheikunde, Biologie, Geschiedenis, Aardrijkskunde, Economie, Duits.
+
+## Contact
+- Email: support@glowexamen.nl
+- Website: https://www.glowexamen.nl
+- Data: Europese servers, AVG-compliant, voorbereid op EU AI Act
